@@ -1,5 +1,5 @@
 ---
-name: Routing
+name: routing
 description: File-based routing, dynamic routes, navigation, and middleware in Nuxt
 ---
 

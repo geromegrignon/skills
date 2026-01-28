@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Vite Integration
+name: unocss-vite-integration
 description: Setting up UnoCSS with Vite and framework-specific tips
 ---
 

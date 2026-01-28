@@ -1,5 +1,5 @@
 ---
-name: Built-in Components
+name: built-in-components
 description: NuxtLink, NuxtPage, NuxtLayout, and other built-in Nuxt components
 ---
 

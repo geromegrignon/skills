@@ -1,5 +1,5 @@
 ---
-name: Stores
+name: stores
 description: Defining stores, state, getters, and actions in Pinia
 ---
 

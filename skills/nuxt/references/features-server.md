@@ -1,5 +1,5 @@
 ---
-name: Server Routes
+name: server-routes
 description: API routes, server middleware, and Nitro server engine in Nuxt
 ---
 

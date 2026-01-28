@@ -1,5 +1,5 @@
 ---
-name: Server Side Rendering
+name: server-side-rendering
 description: SSR setup, state hydration, and avoiding cross-request state pollution
 ---
 

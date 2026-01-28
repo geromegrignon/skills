@@ -1,5 +1,5 @@
 ---
-name: Mocking
+name: mocking
 description: Mock functions, modules, timers, and dates with vi utilities
 ---
 

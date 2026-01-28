@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Preset Wind4
+name: preset-wind4
 description: Tailwind CSS v4 compatible preset with enhanced features
 ---
 

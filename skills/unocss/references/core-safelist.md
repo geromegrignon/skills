@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Safelist and Blocklist
+name: unocss-safelist-blocklist
 description: Force include or exclude specific utilities
 ---
 

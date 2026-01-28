@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Preset Wind3
+name: preset-wind3
 description: Tailwind CSS / Windi CSS compatible preset for UnoCSS
 ---
 

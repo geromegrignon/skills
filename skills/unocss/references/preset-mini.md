@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Preset Mini
+name: preset-mini
 description: Minimal preset with essential utilities for UnoCSS
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: Extending VitePress Default Theme
+name: extending-vitepress-default-theme
 description: Customize CSS variables, use layout slots, register global components, and override theme fonts
 ---
 

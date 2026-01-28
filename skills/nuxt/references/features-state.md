@@ -1,5 +1,5 @@
 ---
-name: State Management
+name: state-management
 description: useState composable and SSR-friendly state management in Nuxt
 ---
 

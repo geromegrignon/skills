@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Transformer Variant Group
+name: transformer-variant-group
 description: Shorthand for grouping utilities with common prefixes
 ---
 

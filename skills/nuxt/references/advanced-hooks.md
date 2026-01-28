@@ -1,5 +1,5 @@
 ---
-name: Lifecycle Hooks
+name: lifecycle-hooks
 description: Nuxt and Nitro hooks for extending build-time and runtime behavior
 ---
 

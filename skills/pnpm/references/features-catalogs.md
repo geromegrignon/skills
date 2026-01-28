@@ -1,5 +1,5 @@
 ---
-name: pnpm Catalogs
+name: pnpm-catalogs
 description: Centralized dependency version management for workspaces
 ---
 

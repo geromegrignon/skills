@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Preset Icons
+name: preset-icons
 description: Pure CSS icons using Iconify with any icon set
 ---
 

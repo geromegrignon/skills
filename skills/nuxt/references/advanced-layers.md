@@ -1,5 +1,5 @@
 ---
-name: Nuxt Layers
+name: nuxt-layers
 description: Extending Nuxt applications with layers for code sharing and reusability
 ---
 

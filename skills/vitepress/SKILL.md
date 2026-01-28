@@ -1,6 +1,6 @@
 ---
 name: vitepress
-description: Vite & Vue powered static site generator for building fast, content-centric websites
+description: VitePress static site generator powered by Vite and Vue. Use when building documentation sites, configuring themes, or writing Markdown with Vue components.
 metadata:
   author: Anthony Fu
   version: "2026.1.28"
@@ -20,6 +20,8 @@ VitePress is a Static Site Generator (SSG) built on Vite and Vue 3. It takes Mar
 - Check `.vitepress/config.ts` for site configuration
 - Look at `.vitepress/theme/` for custom theme extensions
 - The `public/` directory contains static assets served as-is
+
+> The skill is based on VitePress 1.x, generated at 2026-01-28.
 
 ## Core
 

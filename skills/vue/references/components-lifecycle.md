@@ -1,5 +1,5 @@
 ---
-name: Lifecycle Hooks
+name: lifecycle-hooks
 description: Run code at specific stages of component lifecycle
 ---
 

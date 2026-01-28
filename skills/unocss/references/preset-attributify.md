@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Preset Attributify
+name: preset-attributify
 description: Group utilities in HTML attributes instead of class
 ---
 

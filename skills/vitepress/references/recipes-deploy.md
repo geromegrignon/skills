@@ -1,5 +1,5 @@
 ---
-name: VitePress Deployment
+name: vitepress-deployment
 description: Deploying VitePress sites to various platforms including GitHub Pages, Netlify, Vercel, and more
 ---
 

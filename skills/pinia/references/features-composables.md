@@ -1,5 +1,5 @@
 ---
-name: Composables in Stores
+name: composables-in-stores
 description: Using Vue composables within Pinia stores
 ---
 

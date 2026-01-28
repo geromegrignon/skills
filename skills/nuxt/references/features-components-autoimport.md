@@ -1,5 +1,5 @@
 ---
-name: Components Auto-imports
+name: components-auto-imports
 description: Auto-imported components, lazy loading, and hydration strategies
 ---
 

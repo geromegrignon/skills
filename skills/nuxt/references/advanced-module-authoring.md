@@ -1,5 +1,5 @@
 ---
-name: Module Authoring
+name: module-authoring
 description: Complete guide to creating publishable Nuxt modules with best practices
 ---
 

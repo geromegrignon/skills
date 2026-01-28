@@ -1,5 +1,5 @@
 ---
-name: Rendering Modes
+name: rendering-modes
 description: Universal rendering, client-side rendering, and hybrid rendering in Nuxt
 ---
 

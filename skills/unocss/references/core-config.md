@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Configuration
+name: unocss-configuration
 description: Config file setup and all configuration options for UnoCSS
 ---
 

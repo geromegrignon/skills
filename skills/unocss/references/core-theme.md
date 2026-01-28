@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Theme
+name: unocss-theme
 description: Theming system for colors, breakpoints, and design tokens
 ---
 

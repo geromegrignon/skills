@@ -1,5 +1,5 @@
 ---
-name: Template Refs
+name: template-refs
 description: Access DOM elements and child component instances directly
 ---
 

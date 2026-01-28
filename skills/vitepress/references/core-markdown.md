@@ -1,5 +1,5 @@
 ---
-name: VitePress Markdown
+name: vitepress-markdown
 description: Markdown extensions including frontmatter, custom containers, tables, anchors, and file includes
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: Using Stores Outside Components
+name: using-stores-outside-components
 description: Correctly using stores in navigation guards, plugins, and other non-component contexts
 ---
 

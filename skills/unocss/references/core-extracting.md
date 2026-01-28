@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Extracting
+name: unocss-extracting
 description: How UnoCSS extracts utilities from source code
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: SSR Best Practices
+name: ssr-best-practices
 description: Avoiding SSR context leaks, hydration mismatches, and proper composable usage
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: VitePress Theme Configuration
+name: vitepress-theme-configuration
 description: Default theme configuration for navigation, sidebar, search, social links, and footer
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: pnpm Hooks
+name: pnpm-hooks
 description: Customize package resolution and dependency behavior with pnpmfile hooks
 ---
 

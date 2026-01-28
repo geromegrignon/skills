@@ -1,5 +1,5 @@
 ---
-name: Vue in VitePress Markdown
+name: vue-in-vitepress-markdown
 description: Using Vue components, script setup, directives, and templating in markdown files
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: Hot Module Replacement
+name: hot-module-replacement
 description: Enable HMR to preserve store state during development
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: Composing Stores
+name: composing-stores
 description: Store-to-store communication and avoiding circular dependencies
 ---
 

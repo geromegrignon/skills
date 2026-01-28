@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Layers and Preflights
+name: unocss-layers-preflights
 description: CSS layer ordering and raw CSS injection
 ---
 

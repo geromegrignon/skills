@@ -1,5 +1,5 @@
 ---
-name: Script Setup
+name: script-setup
 description: Compile-time syntactic sugar for Composition API in SFCs
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: Composables Auto-imports
+name: composables-auto-imports
 description: Auto-imported Vue APIs, Nuxt composables, and custom utilities
 ---
 

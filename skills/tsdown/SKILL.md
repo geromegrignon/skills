@@ -1,6 +1,6 @@
 ---
 name: tsdown
-description: tsdown is a fast and elegant TypeScript library bundler powered by Rolldown and Oxc
+description: tsdown fast TypeScript library bundler powered by Rolldown and Oxc. Use when bundling TypeScript libraries, configuring entry points, or generating .d.ts declaration files.
 metadata:
   author: Anthony Fu
   version: "2026.1.28"
@@ -9,7 +9,7 @@ metadata:
 
 tsdown is a next-generation TypeScript library bundler built on Rolldown and Oxc. It provides blazing-fast builds, automatic `.d.ts` generation, and seamless migration from tsup. Supports Rolldown/Rollup/Unplugin plugins and features smart dependency handling.
 
-> This documentation is based on **tsdown v0.20.1**.
+> The skill is based on tsdown v0.20.1, generated at 2026-01-28.
 
 **Anthony's Preferences:**
 - Build pure-ESM packages, avoid CJS

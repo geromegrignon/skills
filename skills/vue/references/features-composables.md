@@ -1,5 +1,5 @@
 ---
-name: Composables
+name: composables
 description: Encapsulate and reuse stateful logic with the Composition API
 ---
 

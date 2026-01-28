@@ -1,5 +1,5 @@
 ---
-name: Component Slots
+name: component-slots
 description: Pass template content to child components with default, named, and scoped slots
 ---
 

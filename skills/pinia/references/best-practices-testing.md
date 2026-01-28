@@ -1,5 +1,5 @@
 ---
-name: Testing
+name: testing
 description: Unit testing stores and components with @pinia/testing
 ---
 

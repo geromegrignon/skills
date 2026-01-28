@@ -1,5 +1,5 @@
 ---
-name: Plugins
+name: plugins
 description: Extend stores with custom properties, methods, and behavior
 ---
 

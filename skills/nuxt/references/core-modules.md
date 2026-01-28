@@ -1,5 +1,5 @@
 ---
-name: Nuxt Modules
+name: nuxt-modules
 description: Creating and using Nuxt modules to extend framework functionality
 ---
 

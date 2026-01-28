@@ -1,5 +1,5 @@
 ---
-name: Vitest Configuration
+name: vitest-configuration
 description: Configure Vitest with vite.config.ts or vitest.config.ts
 ---
 

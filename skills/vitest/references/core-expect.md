@@ -1,5 +1,5 @@
 ---
-name: Expect API
+name: expect-api
 description: Assertions with matchers, asymmetric matchers, and custom matchers
 ---
 

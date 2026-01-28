@@ -1,5 +1,5 @@
 ---
-name: Component Events (Emits)
+name: component-events-emits
 description: Emit and handle custom events from child to parent components
 ---
 

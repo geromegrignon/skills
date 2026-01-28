@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Preset Rem to Px
+name: preset-rem-to-px
 description: Convert rem units to px for utilities
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Shortcuts
+name: unocss-shortcuts
 description: Combine multiple utility rules into single shorthand classes
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: Vitest CLI
+name: vitest-cli
 description: Command line interface commands and options
 ---
 

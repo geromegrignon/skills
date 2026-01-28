@@ -1,5 +1,5 @@
 ---
-name: Component Props
+name: component-props
 description: Declare and use props with type safety and validation
 ---
 

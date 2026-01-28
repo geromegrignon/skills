@@ -1,5 +1,5 @@
 ---
-name: Concurrency & Parallelism
+name: concurrency-parallelism
 description: Concurrent tests, parallel execution, and sharding
 ---
 

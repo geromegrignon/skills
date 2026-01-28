@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Preset Tagify
+name: preset-tagify
 description: Use utilities as HTML tag names
 ---
 

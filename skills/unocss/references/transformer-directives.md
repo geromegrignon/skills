@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Transformer Directives
+name: transformer-directives
 description: CSS directives @apply, @screen, theme(), and icon()
 ---
 

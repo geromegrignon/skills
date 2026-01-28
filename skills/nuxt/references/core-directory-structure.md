@@ -1,5 +1,5 @@
 ---
-name: Directory Structure
+name: directory-structure
 description: Nuxt project folder structure, conventions, and file organization
 ---
 

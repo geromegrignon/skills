@@ -1,5 +1,5 @@
 ---
-name: Configuration
+name: configuration
 description: Nuxt configuration files including nuxt.config.ts, app.config.ts, and runtime configuration
 ---
 

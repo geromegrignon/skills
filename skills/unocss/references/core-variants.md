@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Variants
+name: unocss-variants
 description: Apply variations like hover:, dark:, responsive to rules
 ---
 

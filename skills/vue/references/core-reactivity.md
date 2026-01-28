@@ -1,5 +1,5 @@
 ---
-name: Vue Reactivity System
+name: vue-reactivity-system
 description: Core reactivity primitives - ref, reactive, computed, and watchers
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: Deployment
+name: deployment
 description: Deploying Nuxt applications to various hosting platforms
 ---
 

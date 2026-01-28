@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Transformer Compile Class
+name: transformer-compile-class
 description: Compile multiple classes into one hashed class
 ---
 

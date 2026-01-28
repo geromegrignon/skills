@@ -1,6 +1,6 @@
 ---
 name: vue
-description: Vue.js - The Progressive JavaScript Framework for building user interfaces
+description: Vue.js progressive JavaScript framework. Use when building Vue components, working with reactivity (ref, reactive, computed, watch), or implementing Vue Composition API patterns.
 metadata:
   author: Anthony Fu
   version: "2026.1.28"
@@ -8,6 +8,8 @@ metadata:
 ---
 
 # Vue
+
+> The skill is based on Vue 3.5+, generated at 2026-01-28.
 
 Vue is a progressive JavaScript framework for building user interfaces. It builds on standard HTML, CSS, and JavaScript with intuitive API and world-class documentation. The Composition API with `<script setup>` and TypeScript is the recommended approach for building Vue applications.
 

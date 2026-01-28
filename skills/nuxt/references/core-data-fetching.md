@@ -1,5 +1,5 @@
 ---
-name: Data Fetching
+name: data-fetching
 description: useFetch, useAsyncData, and $fetch for SSR-friendly data fetching
 ---
 

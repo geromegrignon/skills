@@ -1,5 +1,5 @@
 ---
-name: VitePress SSR Compatibility
+name: vitepress-ssr-compatibility
 description: Server-side rendering compatibility, ClientOnly component, and handling browser-only code
 ---
 

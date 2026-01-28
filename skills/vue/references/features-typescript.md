@@ -1,5 +1,5 @@
 ---
-name: TypeScript Integration
+name: typescript-integration
 description: Type Vue components with TypeScript in Composition API
 ---
 

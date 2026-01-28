@@ -1,5 +1,5 @@
 ---
-name: Component v-model
+name: component-v-model
 description: Implement two-way data binding on custom components
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: unocss
-description: Instant on-demand atomic CSS engine - fully customizable, powerful, fast, and joyful
+description: UnoCSS instant atomic CSS engine, superset of Tailwind CSS. Use when configuring UnoCSS, writing utility rules, shortcuts, or working with presets like Wind, Icons, Attributify.
 metadata:
   author: Anthony Fu
   version: "2026.1.28"
@@ -10,6 +10,8 @@ metadata:
 UnoCSS is an instant atomic CSS engine designed to be flexible and extensible. The core is un-opinionated - all CSS utilities are provided via presets. It's a superset of Tailwind CSS, so you can reuse your Tailwind knowledge for basic syntax usage.
 
 **Important:** Before writing UnoCSS code, agents should check for `uno.config.*` or `unocss.config.*` files in the project root to understand what presets, rules, and shortcuts are available. If the project setup is unclear, avoid using attributify mode and other advanced features - stick to basic `class` usage.
+
+> The skill is based on UnoCSS 66.x, generated at 2026-01-28.
 
 ## Core
 

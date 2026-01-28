@@ -1,5 +1,5 @@
 ---
-name: Nuxt Integration
+name: nuxt-integration
 description: Using Pinia with Nuxt - auto-imports, SSR, and best practices
 ---
 

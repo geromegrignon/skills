@@ -1,8 +1,10 @@
 # Skills Generator
 
-Generate [Agent Skills](https://agentskills.io/home) from project documentation with Anthony Fu's preferences.
+Generate [Agent Skills](https://agentskills.io/home) from project documentation.
 
-- Focus on agents capabilities and practical usage patterns. For user-facing guides, introductions, get-started, install guide, or common knowledge that LLM agents already know, you can skip those content.
+PLEASE DO FOLLOW THIS BEST PRACTICES GUIDELINE: https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices
+
+Focus on agents capabilities and practical usage patterns. For user-facing guides, introductions, get-started, install guide, or common knowledge that LLM agents already know, you can skip those content.
 
 ## Skill Source Types
 

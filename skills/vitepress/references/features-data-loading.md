@@ -1,5 +1,5 @@
 ---
-name: VitePress Data Loading
+name: vitepress-data-loading
 description: Build-time data loaders for fetching remote data or processing local files
 ---
 

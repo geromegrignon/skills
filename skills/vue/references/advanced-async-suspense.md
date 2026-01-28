@@ -1,5 +1,5 @@
 ---
-name: Async Components & Suspense
+name: async-components-suspense
 description: Handle async operations, top-level await, and Suspense boundaries
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: VitePress Internationalization
+name: vitepress-internationalization
 description: Setting up multi-language sites with locale configuration and RTL support
 ---
 

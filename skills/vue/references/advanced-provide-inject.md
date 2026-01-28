@@ -1,5 +1,5 @@
 ---
-name: Provide / Inject
+name: provide-inject
 description: Pass data through component tree without prop drilling
 ---
 

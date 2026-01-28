@@ -1,5 +1,5 @@
 ---
-name: VitePress Configuration
+name: vitepress-configuration
 description: Config file setup, defineConfig helper, site metadata, and build options
 ---
 

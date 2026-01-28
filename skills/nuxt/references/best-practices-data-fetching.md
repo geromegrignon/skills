@@ -1,5 +1,5 @@
 ---
-name: Data Fetching Best Practices
+name: data-fetching-best-practices
 description: Patterns and best practices for efficient data fetching in Nuxt
 ---
 

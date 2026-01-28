@@ -1,5 +1,5 @@
 ---
-name: VitePress Dynamic Routes
+name: vitepress-dynamic-routes
 description: Generate multiple pages from a single markdown template using paths loader files
 ---
 

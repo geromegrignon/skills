@@ -1,5 +1,5 @@
 ---
-name: Custom Directives
+name: custom-directives
 description: Create reusable directives for low-level DOM manipulation
 ---
 

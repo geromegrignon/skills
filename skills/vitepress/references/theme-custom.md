@@ -1,5 +1,5 @@
 ---
-name: VitePress Custom Themes
+name: vitepress-custom-themes
 description: Building custom themes from scratch with the theme interface, Layout component, and enhanceApp
 ---
 

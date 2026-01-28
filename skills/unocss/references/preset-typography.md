@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Preset Typography
+name: preset-typography
 description: Prose classes for typographic defaults on vanilla HTML content
 ---
 

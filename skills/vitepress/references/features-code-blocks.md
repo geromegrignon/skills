@@ -1,5 +1,5 @@
 ---
-name: VitePress Code Blocks
+name: vitepress-code-blocks
 description: Syntax highlighting, line highlighting, colored diffs, focus, and line numbers
 ---
 

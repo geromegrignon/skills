@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Nuxt Integration
+name: unocss-nuxt-integration
 description: UnoCSS module for Nuxt applications
 ---
 

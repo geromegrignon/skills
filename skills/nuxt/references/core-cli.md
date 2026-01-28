@@ -1,5 +1,5 @@
 ---
-name: CLI Commands
+name: cli-commands
 description: Nuxt CLI commands for development, building, and project management
 ---
 

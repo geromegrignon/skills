@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Rules
+name: unocss-rules
 description: Static and dynamic rules for generating CSS utilities in UnoCSS
 ---
 

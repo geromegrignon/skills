@@ -1,6 +1,6 @@
 ---
 name: vite
-description: Vite is a next-generation frontend build tool that provides a fast dev server with HMR and optimized production builds
+description: Vite next-generation frontend build tool with fast HMR and optimized builds. Use when configuring Vite, adding plugins, working with dev server, or building for production.
 metadata:
   author: Anthony Fu
   version: "2026.1.28"
@@ -8,6 +8,8 @@ metadata:
 ---
 
 Vite is a modern build tool for frontend development featuring instant server start with native ES modules, lightning-fast HMR, and optimized production builds using Rolldown/Rollup. It supports TypeScript, JSX, CSS pre-processors out of the box and has a rich plugin ecosystem.
+
+> The skill is based on Vite 6.x, generated at 2026-01-28.
 
 ## Core
 

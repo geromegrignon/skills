@@ -1,5 +1,5 @@
 ---
-name: VitePress CLI
+name: vitepress-cli
 description: Command-line interface for development, building, and previewing VitePress sites
 ---
 

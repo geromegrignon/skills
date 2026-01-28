@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Transformer Attributify JSX
+name: transformer-attributify-jsx
 description: Support valueless attributify in JSX/TSX
 ---
 

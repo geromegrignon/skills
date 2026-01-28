@@ -1,5 +1,5 @@
 ---
-name: VitePress Routing
+name: vitepress-routing
 description: File-based routing, source directory structure, clean URLs, and route rewrites
 ---
 

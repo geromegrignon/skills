@@ -1,5 +1,5 @@
 ---
-name: UnoCSS Preset Web Fonts
+name: preset-web-fonts
 description: Easy Google Fonts and other web fonts integration
 ---
 
