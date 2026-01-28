@@ -211,6 +211,7 @@ Add script to `package.json`:
 | @antfu/eslint-config | ESLint flat config for formatting and linting | [antfu-eslint-config](references/antfu-eslint-config.md) |
 | GitHub Actions | Preferred workflows using sxzz/workflows | [github-actions](references/github-actions.md) |
 | .gitignore | Preferred .gitignore for JS/TS projects | [gitignore](references/gitignore.md) |
+| VS Code Extensions | Recommended extensions for development | [vscode-extensions](references/vscode-extensions.md) |
 
 ### Development
 

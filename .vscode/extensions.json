@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "antfu.pnpm-catalog-lens",
+    "antfu.iconify",
+    "antfu.unocss",
+    "antfu.slidev",
+    "vue.volar"
+  ]
+}
