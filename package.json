@@ -1,8 +1,14 @@
 {
   "private": true,
   "packageManager": "pnpm@10.28.2",
-  "scripts": {},
+  "scripts": {
+    "sync": "tsx scripts/sync.ts",
+    "prepare": "tsx scripts/sync.ts init"
+  },
   "devDependencies": {
-    "tsx": "^4.21.0"
+    "@clack/prompts": "^0.11.0",
+    "@types/node": "^25.0.10",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
   }
 }

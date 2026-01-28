@@ -1,0 +1,18 @@
+[submodule "sources/vue"]
+	path = sources/vue
+	url = https://github.com/vuejs/core
+[submodule "sources/nuxt"]
+	path = sources/nuxt
+	url = https://github.com/nuxt/nuxt
+[submodule "sources/vite"]
+	path = sources/vite
+	url = https://github.com/vitejs/vite
+[submodule "sources/unocss"]
+	path = sources/unocss
+	url = https://github.com/unocss/unocss
+[submodule "vendor/slidev"]
+	path = vendor/slidev
+	url = https://github.com/slidevjs/slidev
+[submodule "vendor/vueuse"]
+	path = vendor/vueuse
+	url = https://github.com/vueuse/skills
