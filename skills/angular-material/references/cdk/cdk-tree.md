@@ -134,22 +134,22 @@ export class FlattenedTreeExample {
 ### Programmatic Control
 
 ```ts
-@ViewChild(CdkTree) tree: CdkTree<TreeNode>;
+tree = viewChild.required<CdkTree<TreeNode>>(CdkTree);
 
-expandAll() {
-  this.tree.expandAll();
+expandAll(): void {
+  this.tree().expandAll();
 }
 
-collapseAll() {
-  this.tree.collapseAll();
+collapseAll(): void {
+  this.tree().collapseAll();
 }
 
-expandNode(node: TreeNode) {
-  this.tree.expand(node);
+expandNode(node: TreeNode): void {
+  this.tree().expand(node);
 }
 
-toggleNode(node: TreeNode) {
-  this.tree.toggle(node);
+toggleNode(node: TreeNode): void {
+  this.tree().toggle(node);
 }
 ```
 
@@ -230,11 +230,11 @@ Handle node clicks/activation:
 ```
 
 ```ts
-onNodeClick(node: TreeNode) {
+onNodeClick(node: TreeNode): void {
   console.log('Clicked:', node);
 }
 
-onNodeActivate(node: TreeNode) {
+onNodeActivate(node: TreeNode): void {
   // Fired on Enter/Space key
   console.log('Activated:', node);
 }
@@ -286,7 +286,7 @@ interface TreeNode {
           cdkTreeNodeToggle
           class="toggle-btn"
           [attr.aria-label]="'Toggle ' + node.name">
-          @if (tree.isExpanded(node)) {
+          @if (tree().isExpanded(node)) {
             📂
           } @else {
             📁
@@ -298,7 +298,7 @@ interface TreeNode {
   `
 })
 export class FileTree {
-  @ViewChild(CdkTree) tree: CdkTree<TreeNode>;
+  tree = viewChild.required<CdkTree<TreeNode>>(CdkTree);
 
   files: TreeNode[] = [
     {
@@ -316,7 +316,7 @@ export class FileTree {
   isFolder = (node: TreeNode) => node.type === 'folder';
   trackBy = (_: number, node: TreeNode) => node.id;
 
-  openFile(node: TreeNode) {
+  openFile(node: TreeNode): void {
     console.log('Opening file:', node.name);
   }
 }

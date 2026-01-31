@@ -26,8 +26,10 @@ Service for detecting the current platform and browser.
 import { Platform } from '@angular/cdk/platform';
 
 @Component({...})
-export class MyComponent {
-  constructor(private platform: Platform) {
+export class App {
+  platform = inject(Platform);
+
+  constructor() {
     if (this.platform.isBrowser) {
       // Running in browser
     }
@@ -68,8 +70,8 @@ export class MyComponent {
     </div>
   `
 })
-export class MyComponent {
-  constructor(public platform: Platform) {}
+export class App {
+  platform = inject(Platform);
 }
 ```
 
@@ -77,10 +79,10 @@ export class MyComponent {
 
 ```ts
 @Component({...})
-export class MyComponent implements OnInit {
-  constructor(private platform: Platform) {}
+export class App implements OnInit {
+  platform = inject(Platform);
 
-  ngOnInit() {
+  constructor() {
     if (this.platform.isBrowser) {
       // Safe to use window, document, localStorage, etc.
       const saved = localStorage.getItem('settings');
@@ -94,10 +96,10 @@ export class MyComponent implements OnInit {
 
 ```ts
 @Component({...})
-export class MyComponent {
-  constructor(private platform: Platform) {}
+export class App {
+  platform = inject(Platform);
 
-  copyToClipboard(text: string) {
+  copyToClipboard(text: string): void {
     if (this.platform.isBrowser && navigator.clipboard) {
       navigator.clipboard.writeText(text);
     } else {
@@ -105,7 +107,7 @@ export class MyComponent {
     }
   }
 
-  applyScrollBehavior() {
+  applyScrollBehavior(): void {
     // Safari needs different scroll handling
     if (this.platform.SAFARI) {
       this.useSafariScrolling();
@@ -121,13 +123,15 @@ export class MyComponent {
 ```ts
 @Component({...})
 export class ResponsiveComponent {
-  isMobile: boolean;
+  platform = inject(Platform);
 
-  constructor(private platform: Platform) {
-    this.isMobile = this.platform.IOS || this.platform.ANDROID;
+  isMobile = signal<boolean>(false);
+
+  constructor() {
+    this.isMobile.set(this.platform.IOS || this.platform.ANDROID);
   }
 
-  handleTouch() {
+  handleTouch(): void {
     if (this.isMobile) {
       // Touch-optimized behavior
     }
@@ -193,13 +197,13 @@ if (_isTestEnvironment()) {
   selector: '[mobileOnly]'
 })
 export class MobileOnlyDirective {
-  constructor(
-    private platform: Platform,
-    private elementRef: ElementRef,
-    private renderer: Renderer2
-  ) {
-    if (!platform.IOS && !platform.ANDROID) {
-      renderer.setStyle(elementRef.nativeElement, 'display', 'none');
+  platform = inject(Platform);
+  elementRef = inject(ElementRef);
+  renderer = inject(Renderer2);
+  
+  constructor() {
+    if (!this.platform.IOS && !this.platform.ANDROID) {
+      this.renderer.setStyle(this.elementRef().nativeElement, 'display', 'none');
     }
   }
 }

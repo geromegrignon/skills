@@ -42,9 +42,9 @@ import {
   selector: 'my-component',
   template: `<div>Press arrow keys</div>`
 })
-export class MyComponent {
+export class App {
   @HostListener('keydown', ['$event'])
-  handleKeydown(event: KeyboardEvent) {
+  handleKeydown(event: KeyboardEvent): void {
     switch (event.keyCode) {
       case UP_ARROW:
         this.moveUp();
@@ -174,7 +174,7 @@ Check if any modifier key is pressed:
 ```ts
 import { hasModifierKey } from '@angular/cdk/keycodes';
 
-handleKeydown(event: KeyboardEvent) {
+handleKeydown(event: KeyboardEvent): void {
   // Check if any modifier is pressed (Shift, Ctrl, Alt, Meta)
   if (hasModifierKey(event)) {
     return;
@@ -201,10 +201,10 @@ import { UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW } from '@angular/cdk/keyc
   selector: '[arrowNavigable]'
 })
 export class ArrowNavigableDirective {
-  @Output() navigate = new EventEmitter<'up' | 'down' | 'left' | 'right'>();
+  navigate = output<EventEmitter<'up' | 'down' | 'left' | 'right'>>();
 
   @HostListener('keydown', ['$event'])
-  onKeydown(event: KeyboardEvent) {
+  onKeydown(event: KeyboardEvent): void {
     const directions: Record<number, 'up' | 'down' | 'left' | 'right'> = {
       [UP_ARROW]: 'up',
       [DOWN_ARROW]: 'down',
@@ -228,7 +228,7 @@ import {
   UP_ARROW, DOWN_ARROW, ENTER, SPACE, ESCAPE, TAB, HOME, END 
 } from '@angular/cdk/keycodes';
 
-handleMenuKeydown(event: KeyboardEvent) {
+handleMenuKeydown(event: KeyboardEvent): void {
   switch (event.keyCode) {
     case UP_ARROW:
       this.focusPrevious();

@@ -187,7 +187,7 @@ formatLabel(value: number): string {
 ### Checkbox
 
 ```html
-<mat-checkbox [aria-label]="getCheckboxLabel()"></mat-checkbox>
+<mat-checkbox [aria-label]="getCheckboxLabel()" />
 ```
 
 ### Radio
@@ -201,7 +201,7 @@ formatLabel(value: number): string {
 ### Slide Toggle
 
 ```html
-<mat-slide-toggle [aria-label]="getToggleLabel()"></mat-slide-toggle>
+<mat-slide-toggle [aria-label]="getToggleLabel()" />
 ```
 
 ### Slider

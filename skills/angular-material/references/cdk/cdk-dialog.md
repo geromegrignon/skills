@@ -33,10 +33,10 @@ Include overlay styles:
 import { Dialog } from '@angular/cdk/dialog';
 
 @Component({...})
-export class MyComponent {
-  constructor(private dialog: Dialog) {}
+export class App {
+  dialog = inject(Dialog);
 
-  openDialog() {
+  openDialog(): void {
     const dialogRef = this.dialog.open(MyDialogComponent, {
       width: '400px',
       height: '300px',
@@ -61,10 +61,10 @@ export class MyComponent {
     </ng-template>
   `
 })
-export class MyComponent {
-  @ViewChild('dialogTemplate') dialogTemplate: TemplateRef<any>;
+export class App {
+  dialogTemplate = viewChild.required<TemplateRef<any>>(TemplateRef);
 
-  openDialog() {
+  openDialog(): void {
     this.dialog.open(this.dialogTemplate, {
       data: { name: 'World' }
     });
@@ -95,15 +95,15 @@ import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
     }
   `]
 })
-export class MyDialogComponent {
+export class MyDialog {
   dialogRef = inject(DialogRef<string>);
   data = inject(DIALOG_DATA);
 
-  close() {
+  close(): void {
     this.dialogRef.close();
   }
 
-  confirm() {
+  confirm(): void {
     this.dialogRef.close('confirmed');
   }
 }
@@ -204,7 +204,7 @@ this.dialog.open(MyDialogComponent, {
 ```ts
 import { DEFAULT_DIALOG_CONFIG, DialogConfig } from '@angular/cdk/dialog';
 
-@NgModule({
+const appConfig: ApplicationConfig = {
   providers: [
     {
       provide: DEFAULT_DIALOG_CONFIG,
@@ -216,8 +216,7 @@ import { DEFAULT_DIALOG_CONFIG, DialogConfig } from '@angular/cdk/dialog';
       } as DialogConfig
     }
   ]
-})
-export class AppModule {}
+};
 ```
 
 ## Focus Management

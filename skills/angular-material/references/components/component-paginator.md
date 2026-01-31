@@ -25,7 +25,7 @@ Navigation controls for paged data, typically used with tables.
 ```
 
 ```ts
-onPageChange(event: PageEvent) {
+onPageChange(event: PageEvent): void {
   console.log('Page index:', event.pageIndex);
   console.log('Page size:', event.pageSize);
   console.log('Total items:', event.length);
@@ -57,7 +57,7 @@ onPageChange(event: PageEvent) {
 ```
 
 ```ts
-loadPage(event: PageEvent) {
+loadPage(event: PageEvent): void {
   this.dataService.getPage(event.pageIndex, event.pageSize)
     .subscribe(data => {
       this.dataSource = data.items;
@@ -71,16 +71,18 @@ loadPage(event: PageEvent) {
 Paginator integrates directly:
 
 ```ts
-@ViewChild(MatPaginator) paginator: MatPaginator;
+paginator = viewChild.required<MatPaginator>(MatPaginator);
 
-ngAfterViewInit() {
-  this.dataSource.paginator = this.paginator;
+constructor() {
+  afterNextRender(() => {
+    this.dataSource.paginator = this.paginator();
+  });
 }
 ```
 
 ```html
 <table mat-table [dataSource]="dataSource">...</table>
-<mat-paginator [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+<mat-paginator [pageSizeOptions]="[5, 10, 25]" />
 ```
 
 ## Hide Page Size
@@ -110,31 +112,31 @@ ngAfterViewInit() {
 ## Programmatic Control
 
 ```ts
-@ViewChild(MatPaginator) paginator: MatPaginator;
+paginator = viewChild.required<MatPaginator>(MatPaginator);
 
-goToFirstPage() {
-  this.paginator.firstPage();
+goToFirstPage(): void {
+  this.paginator().firstPage();
 }
 
-goToLastPage() {
-  this.paginator.lastPage();
+goToLastPage(): void {
+  this.paginator().lastPage();
 }
 
-goToNextPage() {
-  this.paginator.nextPage();
+goToNextPage(): void {
+  this.paginator().nextPage();
 }
 
-goToPreviousPage() {
-  this.paginator.previousPage();
+goToPreviousPage(): void {
+  this.paginator().previousPage();
 }
 
 // Check navigation availability
 canGoBack(): boolean {
-  return this.paginator.hasPreviousPage();
+  return this.paginator().hasPreviousPage();
 }
 
 canGoForward(): boolean {
-  return this.paginator.hasNextPage();
+  return this.paginator().hasNextPage();
 }
 ```
 
@@ -193,26 +195,26 @@ interface PageEvent {
 ```ts
 @Component({...})
 export class ServerPaginatedTable implements OnInit {
-  dataSource: User[] = [];
-  totalItems = 0;
+  dataSource = signal<User[]>([]);
+  totalItems = signal(0);
   pageSize = 10;
-  pageIndex = 0;
+  pageIndex = signal(0);
 
-  ngOnInit() {
+  constructor() {
     this.loadData();
   }
 
-  loadData() {
+  loadData(): void {
     this.userService.getUsers(this.pageIndex, this.pageSize)
       .subscribe(response => {
-        this.dataSource = response.users;
-        this.totalItems = response.total;
+        this.dataSource.set(response.users);
+        this.totalItems.set(response.total);
       });
   }
 
-  onPageChange(event: PageEvent) {
-    this.pageIndex = event.pageIndex;
-    this.pageSize = event.pageSize;
+  onPageChange(event: PageEvent): void {
+    this.pageIndex.set(event.pageIndex);
+    this.pageSize.set(event.pageSize);
     this.loadData();
   }
 }

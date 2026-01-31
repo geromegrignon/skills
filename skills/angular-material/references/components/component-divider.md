@@ -16,7 +16,7 @@ Simple line separator for visual content separation.
 ## Basic Usage
 
 ```html
-<mat-divider></mat-divider>
+<mat-divider />
 ```
 
 ## Vertical Divider
@@ -24,7 +24,7 @@ Simple line separator for visual content separation.
 ```html
 <div class="container" style="display: flex; height: 100px;">
   <span>Left</span>
-  <mat-divider [vertical]="true"></mat-divider>
+  <mat-divider [vertical]="true" />
   <span>Right</span>
 </div>
 ```
@@ -34,7 +34,7 @@ Simple line separator for visual content separation.
 Indented divider that aligns with content (useful in lists):
 
 ```html
-<mat-divider [inset]="true"></mat-divider>
+<mat-divider [inset]="true" />
 ```
 
 ## In Lists
@@ -46,7 +46,7 @@ Indented divider that aligns with content (useful in lists):
     <span matListItemTitle>Documents</span>
   </mat-list-item>
   
-  <mat-divider></mat-divider>
+  <mat-divider />
   
   <mat-list-item>
     <mat-icon matListItemIcon>folder</mat-icon>
@@ -67,7 +67,7 @@ Align with content, not icons:
       <span matListItemTitle>{{item.name}}</span>
     </mat-list-item>
     @if (!last) {
-      <mat-divider [inset]="true"></mat-divider>
+      <mat-divider [inset]="true" />
     }
   }
 </mat-list>
@@ -83,7 +83,7 @@ Align with content, not icons:
   <mat-list-item>Item 1.1</mat-list-item>
   <mat-list-item>Item 1.2</mat-list-item>
   
-  <mat-divider></mat-divider>
+  <mat-divider />
   
   <h3 matSubheader>Section 2</h3>
   <mat-list-item>Item 2.1</mat-list-item>

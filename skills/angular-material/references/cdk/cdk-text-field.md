@@ -33,16 +33,16 @@ Utilities for working with text input fields.
 ### Programmatic Resize
 
 ```ts
-@ViewChild(CdkTextareaAutosize) autosize: CdkTextareaAutosize;
+autosize = viewChild.required<CdkTextareaAutosize>(CdkTextareaAutosize);
 
 // Trigger resize (e.g., after content change)
-triggerResize() {
-  this.autosize.resizeToFitContent();
+triggerResize(): void {
+  this.autosize().resizeToFitContent();
 }
 
 // Force resize even if content hasn't changed
-forceResize() {
-  this.autosize.resizeToFitContent(true);
+forceResize(): void {
+  this.autosize().resizeToFitContent(true);
 }
 ```
 
@@ -69,23 +69,21 @@ forceResize() {
 import {AutofillMonitor} from '@angular/cdk/text-field';
 
 @Component({...})
-export class MyComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('emailInput') emailInput: ElementRef<HTMLInputElement>;
+export class App implements AfterViewInit, OnDestroy {
+  emailInput = viewChild.required<ElementRef<HTMLInputElement>>('emailInput', {read: ElementRef});
 
-  constructor(private autofillMonitor: AutofillMonitor) {}
+  autofillMonitor = inject(AutofillMonitor);
 
-  ngAfterViewInit() {
-    this.autofillMonitor.monitor(this.emailInput)
+  constructor() {
+    afterNextRender(() => {
+      this.autofillMonitor.monitor(this.emailInput())
       .subscribe(event => {
         if (event.isAutofilled) {
           console.log('Email was autofilled');
           // Maybe validate or show indicator
-        }
-      });
-  }
-
-  ngOnDestroy() {
-    this.autofillMonitor.stopMonitoring(this.emailInput);
+          }
+        });
+    });
   }
 }
 ```
@@ -188,15 +186,15 @@ Mixin signature:
 ### Resize After Async Content
 
 ```ts
-@ViewChild(CdkTextareaAutosize) autosize: CdkTextareaAutosize;
+autosize = viewChild.required<CdkTextareaAutosize>(CdkTextareaAutosize);
 
-loadContent() {
+loadContent(): void {
   this.contentService.getContent().subscribe(content => {
     this.textContent = content;
     
     // Wait for view to update, then resize
     setTimeout(() => {
-      this.autosize.resizeToFitContent(true);
+      this.autosize().resizeToFitContent(true);
     });
   });
 }

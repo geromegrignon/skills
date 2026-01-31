@@ -41,10 +41,10 @@ Import the prebuilt styles (not needed if using Angular Material themes):
 import {Overlay, OverlayRef} from '@angular/cdk/overlay';
 import {ComponentPortal} from '@angular/cdk/portal';
 
-constructor(private overlay: Overlay) {}
+overlay = inject(Overlay);
 
-openPanel() {
-  const overlayRef: OverlayRef = this.overlay.create({
+openPanel(): void {
+  const overlayRef: OverlayRef = this.overlay().create({
     height: '400px',
     width: '600px',
   });
@@ -180,12 +180,11 @@ By default, overlays render in a container appended to `document.body`. For full
 ```ts
 import {OverlayContainer, FullscreenOverlayContainer} from '@angular/cdk/overlay';
 
-@NgModule({
+const appConfig: ApplicationConfig = {
   providers: [
     {provide: OverlayContainer, useClass: FullscreenOverlayContainer}
   ]
-})
-export class MyModule {}
+};
 ```
 
 ## Custom Position Strategy

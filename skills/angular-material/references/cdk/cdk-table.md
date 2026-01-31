@@ -69,7 +69,7 @@ Each column needs a unique name via `cdkColumnDef`:
 displayedColumns = ['name', 'age', 'email'];
 
 // Change at runtime
-toggleColumn(column: string) {
+toggleColumn(column: string): void {
   const index = this.displayedColumns.indexOf(column);
   if (index > -1) {
     this.displayedColumns.splice(index, 1);
@@ -130,11 +130,11 @@ class MyDataSource extends DataSource<User> {
     return this.dataSubject.asObservable();
   }
   
-  disconnect() {
+  disconnect(): void {
     this.dataSubject.complete();
   }
   
-  loadData() {
+  loadData(): void {
     this.api.getUsers().subscribe(data => {
       this.dataSubject.next(data);
     });
@@ -217,8 +217,8 @@ Replace native table elements with CDK directives:
     <cdk-cell *cdkCellDef="let row">{{row.username}}</cdk-cell>
   </ng-container>
 
-  <cdk-header-row *cdkHeaderRowDef="displayedColumns"></cdk-header-row>
-  <cdk-row *cdkRowDef="let row; columns: displayedColumns"></cdk-row>
+  <cdk-header-row *cdkHeaderRowDef="displayedColumns" />
+  <cdk-row *cdkRowDef="let row; columns: displayedColumns" />
 </cdk-table>
 ```
 

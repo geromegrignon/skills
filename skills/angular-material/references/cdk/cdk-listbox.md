@@ -37,7 +37,7 @@ Accessible listbox implementation following WAI ARIA patterns.
 ```ts
 selectedColors: string[] = ['red'];
 
-onSelectionChange(value: string[]) {
+onSelectionChange(value: string[]): void {
   this.selectedColors = value;
 }
 ```

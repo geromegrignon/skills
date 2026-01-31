@@ -173,17 +173,17 @@ export class CardWithActions {
       <ng-content></ng-content>
     </div>
     @if (isTruncated()) {
-    <button (click)="expand()">Show more</button>
+      <button (click)="expand()">Show more</button>
     }
   `
 })
 export class TruncateText {
-  @ViewChild('textContainer') textContainer: ElementRef;
-  isTruncated = false;
+  textContainer = viewChild.required<ElementRef<HTMLElement>>(ElementRef);
+  isTruncated = signal<boolean>(false);
 
-  checkTruncation() {
-    const el = this.textContainer.nativeElement;
-    this.isTruncated = el.scrollHeight > el.clientHeight;
+  checkTruncation(): void {
+    const el = this.textContainer().nativeElement;
+    this.isTruncated.set(el.scrollHeight > el.clientHeight);
   }
 }
 ```

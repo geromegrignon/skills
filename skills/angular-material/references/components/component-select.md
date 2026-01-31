@@ -212,7 +212,7 @@ providers: [
 Use conditional rendering:
 
 ```html
-@if (isMultiple) {
+@if (isMultiple()) {
   <mat-select multiple>...</mat-select>
 } @else {
   <mat-select>...</mat-select>

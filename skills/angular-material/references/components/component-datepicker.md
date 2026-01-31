@@ -42,8 +42,8 @@ bootstrapApplication(App, {
 <mat-form-field>
   <mat-label>Choose a date</mat-label>
   <input matInput [matDatepicker]="picker">
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
+  <mat-datepicker-toggle matSuffix [for]="picker" />
+  <mat-datepicker #picker />
 </mat-form-field>
 ```
 
@@ -56,8 +56,8 @@ bootstrapApplication(App, {
     <input matStartDate placeholder="Start" [(ngModel)]="startDate">
     <input matEndDate placeholder="End" [(ngModel)]="endDate">
   </mat-date-range-input>
-  <mat-datepicker-toggle matSuffix [for]="rangePicker"></mat-datepicker-toggle>
-  <mat-date-range-picker #rangePicker></mat-date-range-picker>
+  <mat-datepicker-toggle matSuffix [for]="rangePicker" />
+  <mat-date-range-picker #rangePicker />
 </mat-form-field>
 ```
 
@@ -125,7 +125,7 @@ weekdaysOnly = (date: Date): boolean => {
 ## Starting View
 
 ```html
-<mat-datepicker #picker startView="year"></mat-datepicker>
+<mat-datepicker #picker startView="year" />
 ```
 
 Options: `month` (default), `year`, `multi-year`
@@ -133,7 +133,7 @@ Options: `month` (default), `year`, `multi-year`
 ### Start At Specific Date
 
 ```html
-<mat-datepicker #picker [startAt]="startAt"></mat-datepicker>
+<mat-datepicker #picker [startAt]="startAt" />
 ```
 
 ## Confirmation Buttons
@@ -154,7 +154,7 @@ Require explicit confirmation:
 Better for mobile:
 
 ```html
-<mat-datepicker #picker touchUi></mat-datepicker>
+<mat-datepicker #picker touchUi />
 ```
 
 ## Inline Calendar
@@ -162,7 +162,7 @@ Better for mobile:
 No popup, embedded calendar:
 
 ```html
-<mat-calendar [(selected)]="selectedDate"></mat-calendar>
+<mat-calendar [(selected)]="selectedDate" />
 ```
 
 ## Date Adapters
@@ -215,7 +215,7 @@ setFrench() {
 ## Highlighting Dates
 
 ```html
-<mat-datepicker #picker [dateClass]="dateClass"></mat-datepicker>
+<mat-datepicker #picker [dateClass]="dateClass" />
 ```
 
 ```ts
@@ -227,16 +227,16 @@ dateClass = (date: Date) => {
 ## Custom Calendar Header
 
 ```html
-<mat-datepicker #picker [calendarHeaderComponent]="CustomHeader"></mat-datepicker>
+<mat-datepicker #picker [calendarHeaderComponent]="CustomHeader" />
 ```
 
 ## Programmatic Control
 
 ```ts
-@ViewChild(MatDatepicker) picker: MatDatepicker<Date>;
+picker = viewChild.required<MatDatepicker<Date>>(MatDatepicker);
 
-openPicker() {
-  this.picker.open();
+openPicker(): void {
+  this.picker().open();
 }
 ```
 

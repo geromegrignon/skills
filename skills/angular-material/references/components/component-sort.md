@@ -36,7 +36,7 @@ Add sorting behavior to table headers.
 ```
 
 ```ts
-onSort(sort: Sort) {
+onSort(sort: Sort): void {
   console.log('Active column:', sort.active);
   console.log('Direction:', sort.direction);  // 'asc', 'desc', or ''
 }
@@ -47,10 +47,12 @@ onSort(sort: Sort) {
 Automatic client-side sorting:
 
 ```ts
-@ViewChild(MatSort) sort: MatSort;
+sort = viewChild.required<MatSort>(MatSort);
 
-ngAfterViewInit() {
-  this.dataSource.sort = this.sort;
+constructor() {
+  afterNextRender(() => {
+    this.dataSource.sort = this.sort();
+  });
 }
 ```
 
@@ -109,22 +111,23 @@ interface Sort {
 ```ts
 @Component({...})
 export class ServerSortedTable {
-  dataSource: User[] = [];
+  dataSource = signal<User[]>([]);
   
-  @ViewChild(MatSort) sort: MatSort;
+  sort = viewChild.required<MatSort>(MatSort);
 
-  ngAfterViewInit() {
-    this.sort.sortChange.subscribe((sort: Sort) => {
+  constructor() {
+    afterNextRender(() => {
+      this.sort().sortChange.subscribe((sort: Sort) => {
       this.loadData(sort.active, sort.direction);
     });
   }
 
-  loadData(sortField: string, sortDirection: string) {
+  loadData(sortField: string, sortDirection: string): void {
     this.userService.getUsers({
       sortBy: sortField,
       order: sortDirection
     }).subscribe(users => {
-      this.dataSource = users;
+      this.dataSource.set(users);
     });
   }
 }
@@ -171,14 +174,14 @@ this.dataSource.sortingDataAccessor = (item, property) => {
 ## Programmatic Sorting
 
 ```ts
-@ViewChild(MatSort) sort: MatSort;
+sort = viewChild.required<MatSort>(MatSort);
 
-sortByName() {
-  this.sort.sort({id: 'name', start: 'asc', disableClear: false});
+sortByName(): void {
+  this.sort().sort({id: 'name', start: 'asc', disableClear: false});
 }
 
-clearSort() {
-  this.sort.sort({id: '', start: 'asc', disableClear: false});
+clearSort(): void {
+  this.sort().sort({id: '', start: 'asc', disableClear: false});
 }
 ```
 
@@ -198,13 +201,13 @@ For screen readers, announce sort changes:
 ```ts
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 
-constructor(private liveAnnouncer: LiveAnnouncer) {}
+liveAnnouncer = inject(LiveAnnouncer);
 
-onSortChange(sort: Sort) {
+onSortChange(sort: Sort): void {
   if (sort.direction) {
-    this.liveAnnouncer.announce(`Sorted ${sort.direction}ending by ${sort.active}`);
+    this.liveAnnouncer().announce(`Sorted ${sort.direction}ending by ${sort.active}`);
   } else {
-    this.liveAnnouncer.announce('Sorting cleared');
+    this.liveAnnouncer().announce('Sorting cleared');
   }
 }
 ```

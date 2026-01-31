@@ -22,9 +22,9 @@ The layout package provides utilities for building responsive UIs that react to 
 ```ts
 import {BreakpointObserver} from '@angular/cdk/layout';
 
-constructor(private breakpointObserver: BreakpointObserver) {}
+breakpointObserver = inject(BreakpointObserver);
 
-checkSize() {
+checkSize(): void {
   const isSmall = this.breakpointObserver.isMatched('(max-width: 599px)');
   const isLarge = this.breakpointObserver.isMatched('(min-width: 1200px)');
 }
@@ -35,7 +35,7 @@ checkSize() {
 ```ts
 import {BreakpointObserver, BreakpointState} from '@angular/cdk/layout';
 
-ngOnInit() {
+constructor() {
   this.breakpointObserver.observe([
     '(orientation: portrait)',
     '(orientation: landscape)',
@@ -112,10 +112,10 @@ this.breakpointObserver.observe([
   `
 })
 export class NavComponent {
+  breakpointObserver = inject(BreakpointObserver);
+
   isHandset$ = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(map(result => result.matches));
-    
-  constructor(private breakpointObserver: BreakpointObserver) {}
 }
 ```
 
@@ -124,22 +124,24 @@ export class NavComponent {
 ```ts
 @Component({...})
 export class GridComponent {
-  columns = 4;
+  breakpointObserver = inject(BreakpointObserver);
+
+  columns = signal(4);
   
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor() {
     this.breakpointObserver.observe([
       Breakpoints.XSmall,
       Breakpoints.Small,
       Breakpoints.Medium,
     ]).subscribe(result => {
       if (result.breakpoints[Breakpoints.XSmall]) {
-        this.columns = 1;
+        this.columns.set(1);
       } else if (result.breakpoints[Breakpoints.Small]) {
-        this.columns = 2;
+        this.columns.set(2);
       } else if (result.breakpoints[Breakpoints.Medium]) {
-        this.columns = 3;
+        this.columns.set(3);
       } else {
-        this.columns = 4;
+        this.columns.set(4);
       }
     });
   }
@@ -153,9 +155,9 @@ Low-level utility wrapping native `matchMedia`:
 ```ts
 import {MediaMatcher} from '@angular/cdk/layout';
 
-constructor(private mediaMatcher: MediaMatcher) {}
+mediaMatcher = inject(MediaMatcher);
 
-checkMedia() {
+checkMedia(): void {
   const mediaQueryList = this.mediaMatcher.matchMedia('(min-width: 600px)');
   
   if (mediaQueryList.matches) {

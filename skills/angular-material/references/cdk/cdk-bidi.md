@@ -28,18 +28,18 @@ import { Subscription } from 'rxjs';
 })
 export class MyWidget implements OnDestroy {
   private dirChangeSubscription = Subscription.EMPTY;
-  isRtl: boolean;
+  isRtl = signal<boolean>(false);
 
   constructor(public dir: Directionality) {
-    this.isRtl = dir.value === 'rtl';
+    this.isRtl.set(dir.value === 'rtl');
 
     this.dirChangeSubscription = dir.change.subscribe(() => {
-      this.isRtl = dir.value === 'rtl';
+      this.isRtl.set(dir.value === 'rtl');
       this.handleDirectionChange();
     });
   }
 
-  handleDirectionChange() {
+  handleDirectionChange(): void {
     // React to direction change
   }
 
@@ -56,12 +56,12 @@ Match elements with `dir` attribute. Components inside get the correct direction
 ```html
 <div dir="rtl">
   <!-- All components inside will have RTL direction -->
-  <my-widget></my-widget>
+  <my-widget />
 </div>
 
 <div dir="ltr">
   <!-- All components inside will have LTR direction -->
-  <my-widget></my-widget>
+  <my-widget />
 </div>
 ```
 
@@ -109,10 +109,10 @@ The `auto` value is supported:
   `]
 })
 export class MyComponent {
-  isRtl = false;
+  isRtl = signal<boolean>(false);
 
   constructor(dir: Directionality) {
-    this.isRtl = dir.value === 'rtl';
+    this.isRtl.set(dir.value === 'rtl');
   }
 }
 ```

@@ -38,19 +38,21 @@ Using the directive:
 Access via ViewChild:
 
 ```ts
-@ViewChild(CdkPortal) templatePortal: CdkPortal;
+templatePortal = viewChild.required<CdkPortal>(CdkPortal);
 ```
 
 Programmatic creation:
 
 ```ts
-@ViewChild('templateContent') templateContent: TemplateRef<unknown>;
+templateContent = viewChild.required<TemplateRef<unknown>>(TemplateRef);
 
-ngAfterViewInit() {
-  this.templatePortal = new TemplatePortal(
-    this.templateContent,
-    this.viewContainerRef
-  );
+constructor() {
+  afterNextRender(() => {
+  this.templatePortal.set(new TemplatePortal(
+      this.templateContent(),
+      this.viewContainerRef()
+    ));
+  });
 }
 ```
 
@@ -61,8 +63,12 @@ Create a portal from a component class:
 ```ts
 import {ComponentPortal} from '@angular/cdk/portal';
 
-ngAfterViewInit() {
-  this.userSettingsPortal = new ComponentPortal(UserSettingsComponent);
+userSettingsPortal = signal<ComponentPortal<any>>(null);
+
+constructor() {
+  afterNextRender(() => {
+    this.userSettingsPortal.set(new ComponentPortal(UserSettingsComponent));
+  });
 }
 ```
 
@@ -86,10 +92,12 @@ Move existing DOM content (note: Angular bindings won't update after move):
 ```
 
 ```ts
-@ViewChild('domContent') domContent: ElementRef<HTMLElement>;
+domContent = viewChild.required<ElementRef<HTMLElement>>(ElementRef);
 
-ngAfterViewInit() {
-  this.domPortal = new DomPortal(this.domContent);
+constructor() {
+  afterNextRender(() => {
+    this.domPortal.set(new DomPortal(this.domContent()));
+  });
 }
 ```
 
@@ -106,7 +114,7 @@ Render portals in templates:
 ```ts
 activePortal: Portal<any>;
 
-showSettings() {
+showSettings(): void {
   this.activePortal = this.userSettingsPortal;
 }
 ```
@@ -162,13 +170,17 @@ Tab panel with dynamic content:
   `
 })
 export class TabsComponent {
-  @ViewChild('tab1', {read: CdkPortal}) tab1Portal: CdkPortal;
-  @ViewChild('tab2', {read: CdkPortal}) tab2Portal: CdkPortal;
+  tab1Portal = viewChild.required<CdkPortal>('tab1', {read: CdkPortal});
+  tab2Portal = viewChild.required<CdkPortal>('tab2', {read: CdkPortal});
   
-  activeTab: Portal<any>;
+  activeTab = signal<Portal<any>>(null);
   
-  showTab1() { this.activeTab = this.tab1Portal; }
-  showTab2() { this.activeTab = this.tab2Portal; }
+  showTab1(): void {
+    this.activeTab.set(this.tab1Portal());
+  }
+  showTab2(): void {
+    this.activeTab.set(this.tab2Portal());
+  }
 }
 ```
 

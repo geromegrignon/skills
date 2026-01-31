@@ -34,7 +34,7 @@ Utilities for copying text to the system clipboard.
 ```
 
 ```ts
-onCopied(success: boolean) {
+onCopied(success: boolean): void {
   if (success) {
     this.showToast('Copied!');
   } else {
@@ -62,10 +62,10 @@ For long text that may fail on first attempt:
 import {Clipboard} from '@angular/cdk/clipboard';
 
 @Component({...})
-export class MyComponent {
-  constructor(private clipboard: Clipboard) {}
+export class App {
+  clipboard = inject(Clipboard);
 
-  copyText() {
+  copyText(): void {
     const success = this.clipboard.copy('Text to copy');
     if (success) {
       console.log('Copied successfully');
@@ -79,12 +79,12 @@ export class MyComponent {
 For large content, use `beginCopy` to prepare:
 
 ```ts
-copyLargeText() {
+copyLargeText(): void {
   const pending = this.clipboard.beginCopy(this.largeText);
   
   let remainingAttempts = 3;
   
-  const attempt = () => {
+  const attempt = (): void => {
     const result = pending.copy();
     if (!result && --remainingAttempts) {
       // Retry after brief delay

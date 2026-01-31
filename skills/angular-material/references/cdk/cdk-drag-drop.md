@@ -46,7 +46,7 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 items = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
 
-drop(event: CdkDragDrop<string[]>) {
+drop(event: CdkDragDrop<string[]>): void {
   moveItemInArray(this.items, event.previousIndex, event.currentIndex);
 }
 ```
@@ -81,7 +81,7 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 todo = ['Task 1', 'Task 2'];
 done = ['Task 3'];
 
-drop(event: CdkDragDrop<string[]>) {
+drop(event: CdkDragDrop<string[]>): void {
   if (event.previousContainer === event.container) {
     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
   } else {
@@ -229,7 +229,7 @@ canSort = (index: number, drag: CdkDrag, drop: CdkDropList) => {
 ```
 
 ```ts
-drop(event: CdkDragDrop<Item>) {
+drop(event: CdkDragDrop<Item>): void {
   console.log('Dropped item:', event.item.data);
 }
 ```
@@ -247,10 +247,10 @@ dragPosition = {x: 100, y: 50};
 Reset position:
 
 ```ts
-@ViewChild(CdkDrag) drag: CdkDrag;
+drag = viewChild.required<CdkDrag>(CdkDrag);
 
-resetPosition() {
-  this.drag.reset();
+resetPosition(): void {
+  this.drag().reset();
 }
 ```
 

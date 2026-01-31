@@ -152,7 +152,7 @@ Container component for displaying lists of items.
     Documents
   </mat-list-item>
   
-  <mat-divider></mat-divider>
+  <mat-divider />
   
   <h3 matSubheader>Files</h3>
   <mat-list-item>
@@ -167,7 +167,7 @@ Container component for displaying lists of items.
 ```html
 <mat-list>
   <mat-list-item>Item 1</mat-list-item>
-  <mat-divider inset></mat-divider>
+  <mat-divider inset />
   <mat-list-item>Item 2</mat-list-item>
 </mat-list>
 ```

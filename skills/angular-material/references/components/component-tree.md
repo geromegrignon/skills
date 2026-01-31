@@ -143,30 +143,30 @@ levelAccessor = (node: FlatNode) => node.level;
 ### Programmatic Control
 
 ```ts
-@ViewChild(MatTree) tree: MatTree<Node>;
+tree = viewChild.required<MatTree>(MatTree);
 
-expandAll() {
-  this.tree.expandAll();
+expandAll(): void {
+  this.tree().expandAll();
 }
 
-collapseAll() {
-  this.tree.collapseAll();
+collapseAll(): void {
+  this.tree().collapseAll();
 }
 
-expand(node: Node) {
-  this.tree.expand(node);
+expand(node: Node): void {
+  this.tree().expand(node);
 }
 
-collapse(node: Node) {
-  this.tree.collapse(node);
+collapse(node: Node): void {
+  this.tree().collapse(node);
 }
 
-toggle(node: Node) {
-  this.tree.toggle(node);
+toggle(node: Node): void {
+  this.tree().toggle(node);
 }
 
 isExpanded(node: Node): boolean {
-  return this.tree.isExpanded(node);
+  return this.tree().isExpanded(node);
 }
 ```
 
@@ -220,7 +220,7 @@ Handle node click/keyboard activation:
 ```
 
 ```ts
-onExpansionChange(node: Node, expanded: boolean) {
+onExpansionChange(node: Node, expanded: boolean): void {
   if (expanded) {
     this.loadChildren(node);
   }
@@ -230,7 +230,7 @@ onExpansionChange(node: Node, expanded: boolean) {
 ## Lazy Loading Children
 
 ```ts
-loadChildren(node: Node) {
+loadChildren(node: Node): void {
   if (!node.childrenLoaded) {
     this.dataService.getChildren(node.id).subscribe(children => {
       node.children = children;

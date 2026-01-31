@@ -58,10 +58,10 @@ Collapsible side content for fullscreen apps.
 ```
 
 ```ts
-@ViewChild(MatSidenav) sidenav: MatSidenav;
+sidenav = viewChild.required<MatSidenav>(MatSidenav);
 
-async openNav() {
-  const opened = await this.sidenav.open();
+async openNav(): Promise<void> {
+  const opened = await this.sidenav().open();
 }
 ```
 
@@ -247,7 +247,7 @@ Organize content into views.
 <mat-tab label="Heavy Content">
   <ng-template matTabContent>
     <!-- Only loaded when tab is active -->
-    <heavy-component></heavy-component>
+    <heavy-component />
   </ng-template>
 </mat-tab>
 ```
@@ -265,7 +265,7 @@ Route-based navigation:
 </nav>
 
 <mat-tab-nav-panel>
-  <router-outlet></router-outlet>
+  <router-outlet />
 </mat-tab-nav-panel>
 ```
 

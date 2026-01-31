@@ -93,14 +93,14 @@ export class TableWithSelection {
   selection = new SelectionModel<User>(true, []);
 
   /** Whether all rows are selected */
-  isAllSelected() {
+  isAllSelected(): boolean {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
     return numSelected === numRows;
   }
 
   /** Toggle all rows */
-  toggleAllRows() {
+  toggleAllRows(): void {
     if (this.isAllSelected()) {
       this.selection.clear();
     } else {

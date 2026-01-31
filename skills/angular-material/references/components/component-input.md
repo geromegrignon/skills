@@ -158,19 +158,22 @@ providers: [
 Using CDK's `AutofillMonitor`:
 
 ```ts
-constructor(private autofillMonitor: AutofillMonitor) {}
+autofillMonitor = inject(AutofillMonitor);
 
-ngAfterViewInit() {
-  this.autofillMonitor.monitor(this.emailInput).subscribe(event => {
-    if (event.isAutofilled) {
-      console.log('Email was autofilled');
-    }
+constructor() {
+  afterNextRender(() => {
+    this.autofillMonitor.monitor(this.emailInput).subscribe(event => {
+      if (event.isAutofilled) {
+        console.log('Email was autofilled');
+      }
+    });
   });
 }
 
 ngOnDestroy() {
   this.autofillMonitor.stopMonitoring(this.emailInput);
 }
+
 ```
 
 Or use directive:

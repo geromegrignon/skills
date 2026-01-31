@@ -112,7 +112,7 @@ Defer initialization until panel opens:
   
   <ng-template matExpansionPanelContent>
     <!-- Only initialized when panel opens -->
-    <expensive-component></expensive-component>
+    <expensive-component />
   </ng-template>
 </mat-expansion-panel>
 ```
@@ -120,32 +120,32 @@ Defer initialization until panel opens:
 ## Programmatic Control
 
 ```ts
-@ViewChild('panel') panel: MatExpansionPanel;
+panel = viewChild.required<MatExpansionPanel>(MatExpansionPanel);
 
-expand() {
-  this.panel.open();
+expand(): void {
+  this.panel().open();
 }
 
-collapse() {
-  this.panel.close();
+collapse(): void {
+  this.panel().close();
 }
 
-toggle() {
-  this.panel.toggle();
+toggle(): void {
+  this.panel().toggle();
 }
 ```
 
 ### Accordion Control
 
 ```ts
-@ViewChild(MatAccordion) accordion: MatAccordion;
+accordion = viewChild.required<MatAccordion>(MatAccordion);
 
-openAll() {
-  this.accordion.openAll();
+openAll(): void {
+  this.accordion().openAll();
 }
 
-closeAll() {
-  this.accordion.closeAll();
+closeAll(): void {
+  this.accordion().closeAll();
 }
 ```
 

@@ -63,14 +63,14 @@ Control whether badge overlaps its content:
 ## Visibility
 
 ```html
-<span matBadge="4" [matBadgeHidden]="hideCount">Messages</span>
+<span matBadge="4" [matBadgeHidden]="hideCount()">Messages</span>
 ```
 
 ```ts
-hideCount = false;
+hideCount = signal(false);
 
-toggleBadge() {
-  this.hideCount = !this.hideCount;
+toggleBadge(): void {
+  this.hideCount.set(!this.hideCount());
 }
 ```
 
@@ -85,14 +85,14 @@ toggleBadge() {
 ## Dynamic Content
 
 ```html
-<span [matBadge]="unreadCount">Messages</span>
+<span [matBadge]="unreadCount()">Messages</span>
 ```
 
 ```ts
-unreadCount = 5;
+unreadCount = signal(5);
 
-addMessage() {
-  this.unreadCount++;
+addMessage(): void {
+  this.unreadCount.set(this.unreadCount() + 1);
 }
 ```
 

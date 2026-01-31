@@ -43,7 +43,7 @@ constructor() {
   });
 }
 
-onKeydown(event: KeyboardEvent) {
+onKeydown(event: KeyboardEvent): void {
   this.keyManager.onKeydown(event);
 }
 ```
@@ -125,7 +125,7 @@ import {LiveAnnouncer} from '@angular/cdk/a11y';
 
 private liveAnnouncer = inject(LiveAnnouncer);
 
-announceChange() {
+announceChange(): void {
   this.liveAnnouncer.announce('Item deleted', 'polite');
   // Politeness: 'polite' (waits) or 'assertive' (interrupts)
 }

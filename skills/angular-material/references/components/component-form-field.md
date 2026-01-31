@@ -54,12 +54,19 @@ import { MatInputModule } from '@angular/material/input'; // For matInput direct
 ### Global Default
 
 ```ts
-@NgModule({
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+
+export const appConfig: ApplicationConfig = {
   providers: [
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+    ...
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: {
+        appearance: 'outline'
+      }
+    }
   ]
-})
-export class AppModule {}
+};
 ```
 
 ## Floating Label
@@ -186,8 +193,11 @@ Available variants: `'primary'`, `'secondary'`, `'tertiary'`, `'error'`
 ## Global Configuration
 
 ```ts
-@NgModule({
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+
+export const appConfig: ApplicationConfig = {
   providers: [
+    ...
     {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
       useValue: {
@@ -197,8 +207,7 @@ Available variants: `'primary'`, `'secondary'`, `'tertiary'`, `'error'`
       }
     }
   ]
-})
-export class AppModule {}
+};
 ```
 
 ## Accessibility

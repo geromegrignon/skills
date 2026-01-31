@@ -231,7 +231,7 @@ class CdkStep {
   providers: [{ provide: CdkStepper, useExisting: CustomStepper }]
 })
 export class CustomStepper extends CdkStepper {
-  selectStep(index: number) {
+  selectStep(index: number): void {
     if (!this.linear || this.canNavigate(index)) {
       this.selectedIndex = index;
     }

@@ -66,8 +66,8 @@ Requires completing previous steps:
 ```
 
 ```ts
-firstFormGroup = this.fb.group({
-  name: ['', Validators.required]
+firstFormGroup = new FormGroup({
+  name: new FormControl('', Validators.required)
 });
 ```
 
@@ -206,7 +206,7 @@ Defer step content until opened:
 ```html
 <mat-step>
   <ng-template matStepContent>
-    <heavy-component></heavy-component>
+    <heavy-component />
   </ng-template>
 </mat-step>
 ```
@@ -228,12 +228,14 @@ Disable animation:
 ```ts
 @Component({...})
 export class ResponsiveStepper {
-  orientation: StepperOrientation = 'horizontal';
+  orientation = signal<StepperOrientation>('horizontal');
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  breakpointObserver = inject(BreakpointObserver);
+
+  constructor() {
     this.breakpointObserver.observe(Breakpoints.Handset)
       .subscribe(result => {
-        this.orientation = result.matches ? 'vertical' : 'horizontal';
+        this.orientation.set(result.matches ? 'vertical' : 'horizontal');
       });
   }
 }
@@ -246,22 +248,22 @@ export class ResponsiveStepper {
 ## Programmatic Navigation
 
 ```ts
-@ViewChild(MatStepper) stepper: MatStepper;
+stepper = viewChild.required<MatStepper>(MatStepper);
 
-goToStep(index: number) {
-  this.stepper.selectedIndex = index;
+goToStep(index: number): void {
+  this.stepper().selectedIndex = index;
 }
 
-nextStep() {
-  this.stepper.next();
+nextStep(): void {
+  this.stepper().next();
 }
 
-previousStep() {
-  this.stepper.previous();
+previousStep(): void {
+  this.stepper().previous();
 }
 
-reset() {
-  this.stepper.reset();
+reset(): void {
+  this.stepper().reset();
 }
 ```
 
@@ -272,7 +274,7 @@ reset() {
 ```
 
 ```ts
-onStepChange(event: StepperSelectionEvent) {
+onStepChange(event: StepperSelectionEvent): void {
   console.log('Previous:', event.previouslySelectedIndex);
   console.log('Current:', event.selectedIndex);
 }
@@ -281,7 +283,7 @@ onStepChange(event: StepperSelectionEvent) {
 ## Localization
 
 ```ts
-@NgModule({
+export const appConfig: ApplicationConfig = {
   providers: [
     {provide: MatStepperIntl, useClass: MyStepperIntl}
   ]

@@ -24,9 +24,9 @@ Modal panels that slide up from the bottom, primarily for mobile interactions.
 ```ts
 import {MatBottomSheet} from '@angular/material/bottom-sheet';
 
-constructor(private bottomSheet: MatBottomSheet) {}
+private bottomSheet = inject(MatBottomSheet);
 
-openSheet() {
+openSheet(): void {
   this.bottomSheet.open(ShareSheetComponent);
 }
 ```
@@ -60,13 +60,11 @@ this.bottomSheet.open(DetailSheetComponent, {
 import {MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 
 @Component({...})
-export class DetailSheetComponent {
-  constructor(
-    @Inject(MAT_BOTTOM_SHEET_DATA) public data: {name: string, id: number},
-    private sheetRef: MatBottomSheetRef<DetailSheetComponent>
-  ) {}
+export class DetailSheet {
+  private sheetRef = inject(MatBottomSheetRef<DetailSheetComponent>);
+  data = inject(MAT_BOTTOM_SHEET_DATA);
 
-  close() {
+  close(): void {
     this.sheetRef.dismiss('result value');
   }
 }
@@ -144,9 +142,9 @@ Handle close attempts in the sheet:
 ```ts
 @Component({...})
 export class ImportantSheet {
-  constructor(private sheetRef: MatBottomSheetRef<ImportantSheet>) {}
+  private sheetRef = inject(MatBottomSheetRef<ImportantSheet>);
 
-  attemptClose() {
+  attemptClose(): void {
     if (this.canClose()) {
       this.sheetRef.dismiss();
     } else {

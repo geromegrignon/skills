@@ -52,10 +52,10 @@ dataSource = new MatTableDataSource(this.users);
 For columns displaying a single property:
 
 ```html
-<mat-text-column name="email"></mat-text-column>
+<mat-text-column name="email" />
 
 <!-- With custom header -->
-<mat-text-column name="email" headerText="Email Address"></mat-text-column>
+<mat-text-column name="email" headerText="Email Address" />
 ```
 
 ## MatTableDataSource
@@ -67,7 +67,7 @@ import {MatTableDataSource} from '@angular/material/table';
 
 dataSource = new MatTableDataSource<User>();
 
-ngOnInit() {
+constructor() {
   this.dataSource.data = this.users;
 }
 ```
@@ -87,10 +87,12 @@ ngOnInit() {
 ```ts
 import {MatSort} from '@angular/material/sort';
 
-@ViewChild(MatSort) sort: MatSort;
+sort = viewChild.required<MatSort>(MatSort);
 
-ngAfterViewInit() {
-  this.dataSource.sort = this.sort;
+constructor() {
+  afterNextRender(() => {
+    this.dataSource.sort = this.sort();
+  });
 }
 ```
 
@@ -112,16 +114,18 @@ this.dataSource.sortingDataAccessor = (item, property) => {
 <table mat-table [dataSource]="dataSource">
   ...
 </table>
-<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons />
 ```
 
 ```ts
 import {MatPaginator} from '@angular/material/paginator';
 
-@ViewChild(MatPaginator) paginator: MatPaginator;
+paginator = viewChild.required<MatPaginator>(MatPaginator);
 
-ngAfterViewInit() {
-  this.dataSource.paginator = this.paginator;
+constructor() {
+  afterNextRender(() => {
+    this.dataSource.paginator = this.paginator();
+  });
 }
 ```
 
@@ -145,7 +149,7 @@ ngAfterViewInit() {
 ```ts
 filterValue = '';
 
-applyFilter(event: Event) {
+applyFilter(event: Event): void {
   this.filterValue = (event.target as HTMLInputElement).value;
   this.dataSource.filter = this.filterValue.trim().toLowerCase();
 }
@@ -167,11 +171,11 @@ import {SelectionModel} from '@angular/cdk/collections';
 
 selection = new SelectionModel<User>(true, []); // Multi-select
 
-isAllSelected() {
+isAllSelected(): boolean {
   return this.selection.selected.length === this.dataSource.data.length;
 }
 
-toggleAllRows() {
+toggleAllRows(): void {
   this.isAllSelected()
     ? this.selection.clear()
     : this.dataSource.data.forEach(row => this.selection.select(row));
@@ -283,8 +287,8 @@ Alternative to native `<table>`:
     <mat-cell *matCellDef="let user">{{user.name}}</mat-cell>
   </ng-container>
   
-  <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: columns"></mat-row>
+  <mat-header-row *matHeaderRowDef="columns" />
+  <mat-row *matRowDef="let row; columns: columns" />
 </mat-table>
 ```
 

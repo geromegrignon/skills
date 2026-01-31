@@ -95,21 +95,21 @@ Compact elements for information display, selection, and text entry.
 ```ts
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 
-tags: string[] = ['Angular', 'Material'];
+tags = signal<string[]>(['Angular', 'Material']);
 separatorKeyCodes = [ENTER, COMMA];
 
-addTag(event: MatChipInputEvent) {
+addTag(event: MatChipInputEvent): void {
   const value = (event.value || '').trim();
   if (value) {
-    this.tags.push(value);
+    this.tags.update(tags => [...tags, value]);
   }
   event.chipInput.clear();
 }
 
-removeTag(tag: string) {
-  const index = this.tags.indexOf(tag);
+removeTag(tag: string): void {
+  const index = this.tags().indexOf(tag);
   if (index >= 0) {
-    this.tags.splice(index, 1);
+    this.tags.update(tags => tags.filter((_, i) => i !== index));
   }
 }
 ```

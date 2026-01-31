@@ -24,8 +24,8 @@ Time input with dropdown selection of predefined options.
 <mat-form-field>
   <mat-label>Pick a time</mat-label>
   <input matInput [matTimepicker]="picker">
-  <mat-timepicker-toggle matSuffix [for]="picker"></mat-timepicker-toggle>
-  <mat-timepicker #picker></mat-timepicker>
+  <mat-timepicker-toggle matSuffix [for]="picker" />
+  <mat-timepicker #picker />
 </mat-form-field>
 ```
 
@@ -33,8 +33,8 @@ Time input with dropdown selection of predefined options.
 
 ```html
 <input [matTimepicker]="picker">
-<mat-timepicker-toggle [for]="picker"></mat-timepicker-toggle>
-<mat-timepicker #picker></mat-timepicker>
+<mat-timepicker-toggle [for]="picker" />
+<mat-timepicker #picker />
 ```
 
 ## Forms Integration
@@ -43,8 +43,8 @@ Time input with dropdown selection of predefined options.
 <mat-form-field>
   <mat-label>Meeting time</mat-label>
   <input matInput [matTimepicker]="picker" [formControl]="timeControl">
-  <mat-timepicker-toggle matSuffix [for]="picker"></mat-timepicker-toggle>
-  <mat-timepicker #picker></mat-timepicker>
+  <mat-timepicker-toggle matSuffix [for]="picker" />
+  <mat-timepicker #picker />
 </mat-form-field>
 ```
 
@@ -83,13 +83,13 @@ Default interval is 30 minutes.
 
 ```html
 <!-- 15 minute intervals -->
-<mat-timepicker interval="15m"></mat-timepicker>
+<mat-timepicker interval="15m" />
 
 <!-- 1 hour intervals -->
-<mat-timepicker interval="1h"></mat-timepicker>
+<mat-timepicker interval="1h" />
 
 <!-- 90 minute intervals -->
-<mat-timepicker interval="90 minutes"></mat-timepicker>
+<mat-timepicker interval="90 minutes" />
 ```
 
 ### Interval Format
@@ -112,7 +112,7 @@ providers: [
 ## Custom Options
 
 ```html
-<mat-timepicker [options]="timeOptions"></mat-timepicker>
+<mat-timepicker [options]="timeOptions" />
 ```
 
 ```ts
@@ -136,10 +136,10 @@ Combined date and time selection:
          [matDatepicker]="datepicker" 
          [matTimepicker]="timepicker"
          [formControl]="dateTimeControl">
-  <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-  <mat-datepicker #datepicker></mat-datepicker>
-  <mat-timepicker-toggle matSuffix [for]="timepicker"></mat-timepicker-toggle>
-  <mat-timepicker #timepicker></mat-timepicker>
+  <mat-datepicker-toggle matSuffix [for]="datepicker" />
+  <mat-datepicker #datepicker />
+  <mat-timepicker-toggle matSuffix [for]="timepicker" />
+  <mat-timepicker #timepicker />
 </mat-form-field>
 ```
 
@@ -177,10 +177,10 @@ providers: [
 Runtime change:
 
 ```ts
-constructor(private adapter: DateAdapter<Date>) {}
+adapter = inject(DateAdapter<Date>);
 
-setFrench() {
-  this.adapter.setLocale('fr-FR');
+setFrench(): void {
+  this.adapter().setLocale('fr-FR');
 }
 ```
 

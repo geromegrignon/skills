@@ -37,8 +37,10 @@ Use the newer Material Symbols font:
 
 ```ts
 // Register font set
-constructor(iconRegistry: MatIconRegistry) {
-  iconRegistry.setDefaultFontSetClass('material-symbols-outlined');
+iconRegistry = inject(MatIconRegistry);
+
+constructor() {
+  this.iconRegistry.setDefaultFontSetClass('material-symbols-outlined');
 }
 ```
 
@@ -51,7 +53,10 @@ constructor(iconRegistry: MatIconRegistry) {
 ### Register Individual Icons
 
 ```ts
-constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+iconRegistry = inject(MatIconRegistry);
+sanitizer = inject(DomSanitizer);
+
+constructor() {
   iconRegistry.addSvgIcon(
     'thumbs_up',
     sanitizer.bypassSecurityTrustResourceUrl('assets/icons/thumbs-up.svg')
@@ -60,7 +65,7 @@ constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
 ```
 
 ```html
-<mat-icon svgIcon="thumbs_up"></mat-icon>
+<mat-icon svgIcon="thumbs_up" />
 ```
 
 ### Register Icon Set
@@ -72,7 +77,7 @@ iconRegistry.addSvgIconSet(
 ```
 
 ```html
-<mat-icon svgIcon="custom-icon"></mat-icon>
+<mat-icon svgIcon="custom-icon" />
 ```
 
 ### Namespaced Icons
@@ -86,7 +91,7 @@ iconRegistry.addSvgIconInNamespace(
 ```
 
 ```html
-<mat-icon svgIcon="social:twitter"></mat-icon>
+<mat-icon svgIcon="social:twitter" />
 ```
 
 ### Inline SVG Literal
@@ -108,7 +113,7 @@ iconRegistry.registerFontClassAlias('fontawesome', 'fa');
 ```
 
 ```html
-<mat-icon fontSet="fontawesome" fontIcon="fa-home"></mat-icon>
+<mat-icon fontSet="fontawesome" fontIcon="fa-home" />
 ```
 
 ## Icon Color
@@ -145,7 +150,7 @@ Icons inherit text color by default:
 Mirror icons in RTL layouts:
 
 ```html
-<mat-icon class="mat-icon-rtl-mirror" svgIcon="arrow_forward"></mat-icon>
+<mat-icon class="mat-icon-rtl-mirror" svgIcon="arrow_forward" />
 ```
 
 ## Accessibility
@@ -180,18 +185,6 @@ Or override aria-hidden:
 
 ```html
 <mat-icon aria-hidden="false" aria-label="Warning indicator">warning</mat-icon>
-```
-
-## Loading SVG Icons
-
-SVG icons are fetched via `HttpClient`. Ensure `HttpClientModule` is imported:
-
-```ts
-import {HttpClientModule} from '@angular/common/http';
-
-@NgModule({
-  imports: [HttpClientModule, MatIconModule]
-})
 ```
 
 ## Key Points

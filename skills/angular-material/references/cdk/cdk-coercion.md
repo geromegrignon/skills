@@ -36,12 +36,13 @@ import { coerceBooleanProperty, BooleanInput } from '@angular/cdk/coercion';
   }
 })
 export class MyDirective {
-  @Input()
-  get disabled(): boolean { return this._disabled; }
-  set disabled(value: BooleanInput) {
-    this._disabled = coerceBooleanProperty(value);
+  disabled = signal<boolean>(false);
+
+  constructor() {
+    effect(() => {
+      this.disabled.set(coerceBooleanProperty(this.disabled()));
+    });
   }
-  private _disabled = false;
 }
 ```
 
@@ -67,14 +68,14 @@ import { coerceNumberProperty, NumberInput } from '@angular/cdk/coercion';
   selector: 'my-component',
   template: `Delay: {{ delay }}ms`
 })
-export class MyComponent {
-  @Input()
-  get delay(): number { return this._delay; }
-  set delay(value: NumberInput) {
-    // Second param is fallback value if parsing fails
-    this._delay = coerceNumberProperty(value, 0);
+export class App {
+  delay = signal<number>(0);
+
+  constructor() {
+    effect(() => {
+      this.delay.set(coerceNumberProperty(this.delay()));
+    });
   }
-  private _delay = 0;
 }
 ```
 
@@ -82,10 +83,10 @@ Usage:
 
 ```html
 <!-- String converted to number: -->
-<my-component delay="500"></my-component>
+<my-component delay="500" />
 
 <!-- Direct number binding: -->
-<my-component [delay]="500"></my-component>
+<my-component [delay]="500" />
 ```
 
 ## coerceStringArray
@@ -96,22 +97,23 @@ Convert a value to an array of strings:
 import { Input } from '@angular/core';
 import { coerceStringArray } from '@angular/cdk/coercion';
 
-@Input()
-get classes(): string[] { return this._classes; }
-set classes(value: string | string[]) {
-  this._classes = coerceStringArray(value);
+classes = signal<string[]>([]);
+
+constructor() {
+  effect(() => {
+    this.classes.set(coerceStringArray(this.classes()));
+  });
 }
-private _classes: string[] = [];
 ```
 
 Usage:
 
 ```html
 <!-- Single string: -->
-<my-component classes="active"></my-component>
+<my-component classes="active" />
 
 <!-- Array: -->
-<my-component [classes]="['active', 'highlighted']"></my-component>
+<my-component [classes]="['active', 'highlighted']" />
 ```
 
 ## coerceElement
@@ -122,7 +124,7 @@ Get DOM element from ElementRef or raw element:
 import { ElementRef } from '@angular/core';
 import { coerceElement } from '@angular/cdk/coercion';
 
-function doSomething(elementOrRef: ElementRef<HTMLElement> | HTMLElement) {
+doSomething(elementOrRef: ElementRef<HTMLElement> | HTMLElement): void {
   const element: HTMLElement = coerceElement(elementOrRef);
   // Now you have the raw DOM element
   element.focus();
@@ -175,19 +177,18 @@ import {
   `
 })
 export class AppButton {
-  @Input()
-  get disabled(): boolean { return this._disabled; }
-  set disabled(value: BooleanInput) {
-    this._disabled = coerceBooleanProperty(value);
-  }
-  private _disabled = false;
+  disabled = signal<boolean>(false);
+  width = signal<number>(100);
 
-  @Input()
-  get width(): number { return this._width; }
-  set width(value: NumberInput) {
-    this._width = coerceNumberProperty(value, 100);
+  constructor() {
+    effect(() => {
+      this.disabled.set(coerceBooleanProperty(this.disabled()));
+    });
+
+     effect(() => {
+      this.width.set(coerceNumberProperty(this.width(), 100));
+    });
   }
-  private _width = 100;
 }
 ```
 

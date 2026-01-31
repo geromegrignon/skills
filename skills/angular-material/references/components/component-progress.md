@@ -23,16 +23,16 @@ Horizontal bar showing progress or activity.
 Shows specific progress percentage:
 
 ```html
-<mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
+<mat-progress-bar mode="determinate" [value]="progress" />
 ```
 
 ```ts
-progress = 0;
+progress = signal(0);
 
-startProgress() {
+startProgress(): void {
   const interval = setInterval(() => {
-    this.progress += 10;
-    if (this.progress >= 100) {
+    this.progress.set(this.progress() + 10);
+    if (this.progress() >= 100) {
       clearInterval(interval);
     }
   }, 500);
@@ -44,7 +44,7 @@ startProgress() {
 Unknown duration:
 
 ```html
-<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+<mat-progress-bar mode="indeterminate" />
 ```
 
 ### Buffer
@@ -69,18 +69,18 @@ bufferProgress = 50; // Buffer bar
 Pre-loading indicator:
 
 ```html
-<mat-progress-bar mode="query"></mat-progress-bar>
+<mat-progress-bar mode="query" />
 ```
 
 Switch to determinate once progress is known:
 
 ```ts
-mode = 'query';
-value = 0;
+mode = signal('query');
+value = signal(0);
 
-onProgressAvailable() {
-  this.mode = 'determinate';
-  this.value = actualProgress;
+onProgressAvailable(): void {
+  this.mode.set('determinate');
+  this.value.set(actualProgress);
 }
 ```
 
@@ -95,32 +95,31 @@ Circular progress indicator.
 ```html
 <mat-progress-spinner 
     mode="determinate" 
-    [value]="progress">
-</mat-progress-spinner>
+    [value]="progress" />
 ```
 
 ### Indeterminate
 
 ```html
-<mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+<mat-progress-spinner mode="indeterminate" />
 
 <!-- Or use the alias -->
-<mat-spinner></mat-spinner>
+<mat-spinner />
 ```
 
 ### Custom Diameter
 
 ```html
-<mat-spinner diameter="20"></mat-spinner>
-<mat-spinner diameter="50"></mat-spinner>
-<mat-spinner diameter="100"></mat-spinner>
+<mat-spinner diameter="20" />
+<mat-spinner diameter="50" />
+<mat-spinner diameter="100" />
 ```
 
 ### Custom Stroke Width
 
 ```html
-<mat-spinner strokeWidth="2"></mat-spinner>
-<mat-spinner strokeWidth="8"></mat-spinner>
+<mat-spinner strokeWidth="2" />
+<mat-spinner strokeWidth="8" />
 ```
 
 ---
@@ -130,9 +129,9 @@ Circular progress indicator.
 ### Loading Button
 
 ```html
-<button mat-raised-button [disabled]="isLoading" (click)="submit()">
-  @if (isLoading) {
-    <mat-spinner diameter="20"></mat-spinner>
+<button mat-raised-button [disabled]="isLoading()" (click)="submit()">
+  @if (isLoading()) {
+    <mat-spinner diameter="20" />
   } @else {
     Submit
   }
@@ -142,9 +141,9 @@ Circular progress indicator.
 ### Page Loading Overlay
 
 ```html
-@if (isLoading) {
+@if (isLoading()) {
   <div class="loading-overlay">
-    <mat-spinner></mat-spinner>
+    <mat-spinner />
   </div>
 }
 ```
@@ -168,12 +167,11 @@ Circular progress indicator.
 
 ```html
 <div class="upload-item">
-  <span>{{ file.name }}</span>
+  <span>{{ file().name }}</span>
   <mat-progress-bar 
       mode="determinate" 
-      [value]="file.progress">
-  </mat-progress-bar>
-  <span>{{ file.progress }}%</span>
+      [value]="file().progress" />
+  <span>{{ file().progress }}%</span>
 </div>
 ```
 
@@ -182,7 +180,7 @@ Circular progress indicator.
 ```html
 <span>
   Loading data
-  <mat-spinner diameter="16" class="inline-spinner"></mat-spinner>
+  <mat-spinner diameter="16" class="inline-spinner" />
 </span>
 ```
 
@@ -199,13 +197,13 @@ Circular progress indicator.
 ## Theming
 
 ```html
-<mat-progress-bar color="primary" mode="indeterminate"></mat-progress-bar>
-<mat-progress-bar color="accent" mode="indeterminate"></mat-progress-bar>
-<mat-progress-bar color="warn" mode="indeterminate"></mat-progress-bar>
+<mat-progress-bar color="primary" mode="indeterminate" />
+<mat-progress-bar color="accent" mode="indeterminate" />
+<mat-progress-bar color="warn" mode="indeterminate" />
 
-<mat-spinner color="primary"></mat-spinner>
-<mat-spinner color="accent"></mat-spinner>
-<mat-spinner color="warn"></mat-spinner>
+<mat-spinner color="primary" />
+<mat-spinner color="accent" />
+<mat-spinner color="warn" />
 ```
 
 ---
@@ -218,13 +216,11 @@ Always provide labels:
 <mat-progress-bar 
     mode="determinate" 
     [value]="progress"
-    aria-label="File upload progress">
-</mat-progress-bar>
+    aria-label="File upload progress" />
 
 <mat-progress-spinner 
     mode="indeterminate"
-    aria-label="Loading content">
-</mat-progress-spinner>
+    aria-label="Loading content" />
 ```
 
 - Progress bar uses `role="progressbar"`

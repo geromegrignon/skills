@@ -94,14 +94,14 @@ providers: [
 With delay:
 
 ```ts
-@ViewChild('tooltip') tooltip: MatTooltip;
+tooltip = viewChild.required<MatTooltip>(MatTooltip);
 
-showDelayed() {
-  this.tooltip.show(1000); // Show after 1 second
+showDelayed(): void {
+  this.tooltip().show(1000); // Show after 1 second
 }
 
-hideDelayed() {
-  this.tooltip.hide(500); // Hide after 500ms
+hideDelayed(): void {
+  this.tooltip().hide(500); // Hide after 500ms
 }
 ```
 

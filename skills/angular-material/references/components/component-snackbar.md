@@ -24,9 +24,9 @@ import {
 ```ts
 import {MatSnackBar} from '@angular/material/snack-bar';
 
-constructor(private snackBar: MatSnackBar) {}
+snackBar = inject(MatSnackBar);
 
-showMessage() {
+showMessage(): void {
   this.snackBar.open('Message archived');
 }
 ```
@@ -70,13 +70,11 @@ this.snackBar.openFromComponent(CustomSnackbarComponent, {
     </span>
   `
 })
-export class CustomSnackbarComponent {
-  constructor(
-    @Inject(MAT_SNACK_BAR_DATA) public data: any,
-    private snackBarRef: MatSnackBarRef<CustomSnackbarComponent>
-  ) {}
+export class CustomSnackbar {
+  snackBarRef = inject<MatSnackBarRef<CustomSnackbar>>(MatSnackBarRef);
+  data = inject(MAT_SNACK_BAR_DATA);
 
-  dismiss() {
+  dismiss(): void {
     this.snackBarRef.dismiss();
   }
 }
@@ -131,7 +129,7 @@ snackBarRef.onAction().subscribe(() => {
 ## Global Defaults
 
 ```ts
-@NgModule({
+export const appConfig: ApplicationConfig = {
   providers: [
     {
       provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
@@ -142,7 +140,7 @@ snackBarRef.onAction().subscribe(() => {
       }
     }
   ]
-})
+};
 ```
 
 ## Queueing Behavior

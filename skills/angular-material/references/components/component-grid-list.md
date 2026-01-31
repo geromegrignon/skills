@@ -150,22 +150,23 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
 @Component({...})
 export class ResponsiveGrid {
-  cols = 4;
+  cols = signal(4);
+  breakpointObserver = inject(BreakpointObserver);
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor() {
     this.breakpointObserver.observe([
       Breakpoints.XSmall,
       Breakpoints.Small,
       Breakpoints.Medium
     ]).subscribe(result => {
       if (result.breakpoints[Breakpoints.XSmall]) {
-        this.cols = 1;
+        this.cols.set(1);
       } else if (result.breakpoints[Breakpoints.Small]) {
-        this.cols = 2;
+        this.cols.set(2);
       } else if (result.breakpoints[Breakpoints.Medium]) {
-        this.cols = 3;
+        this.cols.set(3);
       } else {
-        this.cols = 4;
+        this.cols.set(4);
       }
     });
   }
@@ -201,7 +202,7 @@ mat-grid-tile img {
 <mat-grid-list cols="4" rowHeight="200px">
   <mat-grid-tile colspan="2" rowspan="2">
     <mat-grid-tile-header>Main Chart</mat-grid-tile-header>
-    <chart-component></chart-component>
+    <chart-component />
   </mat-grid-tile>
   
   <mat-grid-tile>

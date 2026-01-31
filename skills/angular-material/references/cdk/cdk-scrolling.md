@@ -199,9 +199,9 @@ Measure browser viewport dimensions:
 ```ts
 import {ViewportRuler} from '@angular/cdk/scrolling';
 
-constructor(private viewportRuler: ViewportRuler) {}
+viewportRuler = inject(ViewportRuler);
 
-getViewportSize() {
+getViewportSize(): void {
   const {width, height} = this.viewportRuler.getViewportSize();
   return {width, height};
 }

@@ -25,10 +25,10 @@ The `MatDialog` service creates modal dialogs with Material Design styling and a
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 
 @Component({...})
-export class AppComponent {
-  constructor(private dialog: MatDialog) {}
+export class App {
+  dialog = inject(MatDialog);
 
-  openDialog() {
+  openDialog(): void {
     const dialogRef = this.dialog.open(UserProfileComponent, {
       width: '600px',
       height: '400px',
@@ -59,12 +59,10 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
   `
 })
 export class UserProfileComponent {
-  constructor(
-    public dialogRef: MatDialogRef<UserProfileComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: {name: string}
-  ) {}
+  dialogRef = inject(MatDialogRef<UserProfileComponent>);
+  data = inject(MAT_DIALOG_DATA);
 
-  close() {
+  close(): void {
     this.dialogRef.close('result value');
   }
 }
@@ -84,7 +82,7 @@ const dialogRef = this.dialog.open(MyDialogComponent, {
 Access in dialog:
 
 ```ts
-constructor(@Inject(MAT_DIALOG_DATA) public data: {name: string, id: number}) {}
+data = inject(MAT_DIALOG_DATA);
 ```
 
 For template dialogs:
@@ -134,8 +132,11 @@ const dialogRef = this.dialog.open(MyComponent, {
 ## Global Defaults
 
 ```ts
-@NgModule({
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+
+export const appConfig: ApplicationConfig = {
   providers: [
+    ...
     {
       provide: MAT_DIALOG_DEFAULT_OPTIONS,
       useValue: {
@@ -145,8 +146,7 @@ const dialogRef = this.dialog.open(MyComponent, {
       }
     }
   ]
-})
-export class AppModule {}
+};
 ```
 
 ## Animation Control
@@ -192,12 +192,12 @@ this.dialog.open(MyComponent, {
 Handle when original element is gone (e.g., opened from menu):
 
 ```ts
-openDialogFromMenu() {
+openDialogFromMenu(): void {
   const dialogRef = this.dialog.open(MyComponent);
   
   dialogRef.afterClosed().subscribe(() => {
     // Menu item is gone, focus alternative
-    this.menuTrigger.focus();
+    this.menuTrigger().focus();
   });
 }
 ```

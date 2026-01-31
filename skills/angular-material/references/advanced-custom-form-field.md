@@ -333,7 +333,7 @@ export class MyTelInput implements MatFormFieldControl<MyTel>, ControlValueAcces
 ```html
 <mat-form-field>
   <mat-label>Phone</mat-label>
-  <my-tel-input placeholder="555-555-5555" required></my-tel-input>
+  <my-tel-input placeholder="555-555-5555" required />
   <mat-icon matPrefix>phone</mat-icon>
   <mat-hint>Include area code</mat-hint>
   <mat-error>Phone is required</mat-error>

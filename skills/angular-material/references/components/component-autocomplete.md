@@ -172,7 +172,7 @@ Use without `mat-form-field`:
 ```
 
 ```ts
-onSelected(event: MatAutocompleteSelectedEvent) {
+onSelected(event: MatAutocompleteSelectedEvent): void {
   console.log('Selected:', event.option.value);
 }
 ```
