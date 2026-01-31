@@ -1,63 +1,30 @@
 ---
 name: vue
-description: Vue.js progressive JavaScript framework. Use when building Vue components, working with reactivity (ref, reactive, computed, watch), or implementing Vue Composition API patterns.
+description: Provides Vue 3.3+ new APIs and patterns including defineModel, reactive props destructure, useTemplateRef, defineOptions, defineSlots, and generic components. Use when implementing v-model on components, working with Vue 3.4+ or 3.5+ features, or debugging async setup issues.
 metadata:
   author: Anthony Fu
-  version: "2026.1.28"
+  version: "2026.1.31"
   source: Generated from https://github.com/vuejs/docs, scripts located at https://github.com/antfu/skills
 ---
 
 # Vue
 
-> The skill is based on Vue 3.5+, generated at 2026-01-28.
+> Based on Vue 3.5+, generated 2026-01-31.
 
-Vue is a progressive JavaScript framework for building user interfaces. It builds on standard HTML, CSS, and JavaScript with intuitive API and world-class documentation. The Composition API with `<script setup>` and TypeScript is the recommended approach for building Vue applications.
-
-## Core References
+## References
 
 | Topic | Description | Reference |
 |-------|-------------|-----------|
-| Reactivity System | ref, reactive, computed, watch, and watchEffect | [core-reactivity](references/core-reactivity.md) |
+| New Core APIs | defineModel, reactive destructure, useTemplateRef, onWatcherCleanup, pause/resume | [core-new-apis](references/core-new-apis.md) |
+| Script Setup Macros | defineOptions, defineSlots, named tuple emits, generic components | [script-setup-macros](references/script-setup-macros.md) |
+| Advanced Patterns | Async setup pitfalls, InjectionKey typing | [advanced-patterns](references/advanced-patterns.md) |
 
-## Components
+## Quick Reference
 
-| Topic | Description | Reference |
-|-------|-------------|-----------|
-| Props | Declare and validate component props with TypeScript | [components-props](references/components-props.md) |
-| Events (Emits) | Emit custom events from components | [components-emits](references/components-emits.md) |
-| Slots | Pass template content to child components | [components-slots](references/components-slots.md) |
-| v-model | Two-way binding on custom components | [components-v-model](references/components-v-model.md) |
-| Lifecycle Hooks | Run code at specific component lifecycle stages | [components-lifecycle](references/components-lifecycle.md) |
-
-## Features
-
-### Script Setup & TypeScript
-
-| Topic | Description | Reference |
-|-------|-------------|-----------|
-| Script Setup | Composition API syntactic sugar for SFCs | [features-script-setup](references/features-script-setup.md) |
-| TypeScript | Type-safe Vue components with Composition API | [features-typescript](references/features-typescript.md) |
-
-### Reusability
-
-| Topic | Description | Reference |
-|-------|-------------|-----------|
-| Composables | Encapsulate and reuse stateful logic | [features-composables](references/features-composables.md) |
-| Custom Directives | Low-level DOM manipulation directives | [features-directives](references/features-directives.md) |
-| Template Refs | Direct DOM and component instance access | [features-template-refs](references/features-template-refs.md) |
-
-## Advanced
-
-| Topic | Description | Reference |
-|-------|-------------|-----------|
-| Provide/Inject | Dependency injection across component tree | [advanced-provide-inject](references/advanced-provide-inject.md) |
-| Async & Suspense | Top-level await pitfalls, async components, Suspense | [advanced-async-suspense](references/advanced-async-suspense.md) |
-
-## Key Recommendations
-
-- **Use `<script setup lang="ts">`** for all components
-- **Prefer `ref()` over `reactive()`** for declaring state
-- **Use type-based prop declarations** with interfaces
-- **Use `defineModel()`** for v-model (3.4+)
-- **Destructure props reactively** (3.5+) for cleaner code
-- **Extract composables** for reusable stateful logic
+- `defineModel<T>()` - v-model on components (3.4+)
+- `const { prop = default } = defineProps<Props>()` - reactive destructure (3.5+)
+- `useTemplateRef<T>('name')` - type-safe template refs (3.5+)
+- `onWatcherCleanup(() => {})` - cleanup in watchers (3.5+)
+- `defineOptions({ inheritAttrs: false })` - component options (3.3+)
+- `defineSlots<{ slot(props): any }>()` - typed slots (3.3+)
+- `generic="T"` attribute on script setup - generic components (3.3+)

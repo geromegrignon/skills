@@ -2,9 +2,11 @@
 
 Generate [Agent Skills](https://agentskills.io/home) from project documentation.
 
-PLEASE DO FOLLOW THIS BEST PRACTICES GUIDELINE: https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices
+PLEASE STRICTLY FOLLOW THE BEST PRACTICES FOR SKILL: https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices
 
-Focus on agents capabilities and practical usage patterns. For user-facing guides, introductions, get-started, install guide, or common knowledge that LLM agents already know, you can skip those content.
+- Focus on agents capabilities and practical usage patterns. 
+- Ignore user-facing guides, introductions, get-started, install guides, etc.
+- Ignore content that LLM agents already confident about in their training data.
 
 ## Skill Source Types
 
