@@ -1,3 +1,0 @@
-- Prefer using TypeScript over JavaScript.
-- Use `vi.mock` for mocking modules.
-- Use `expect.soft` for non-critical assertions that shouldn't stop the test.

@@ -1,1 +1,0 @@
-- Prefer the Vite powered Nuxt. Don't consider webpack or other bundlers.
