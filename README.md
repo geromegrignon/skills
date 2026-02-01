@@ -17,6 +17,18 @@ npx skills add angular-sanctuary/angular-agent-skills --skill='angular-material'
 
 Learn more about the CLI usage at [skills](https://github.com/vercel-labs/skills).
 
+## Available Skills
+
+Angular Material
+```bash
+npx skills list angular-sanctuary/angular-agent-skills --skill='angular-material'
+```
+
+Angular Fire
+```bash
+npx skills list angular-sanctuary/angular-agent-skills --skill='angular-fire'
+```
+
 ## Skills
 
 This collection is aim to be a one-stop collection of you are mainly working on Angular. It includes skills from different sources with different scopes.
@@ -28,6 +40,7 @@ Generated from official documentation and fine-tuned by Gerome Grignon.
 | Skill | Description | Source |
 |-------|-------------|--------|
 | [angularMaterial](skills/angularMaterial) | Angular Material - UI component library for Angular | [angular/components](https://github.com/angular/components) |
+| [angularFire](skills/angularFire) | Angular wrapper for Firebase with dependency injection, RxJS observables, and Zone.js integration | [angular/angularfire](https://github.com/angular/angularfire) |
 
 
 ## FAQ
