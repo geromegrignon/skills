@@ -29,6 +29,11 @@ Angular Fire
 npx skills list angular-sanctuary/angular-agent-skills --skill='angular-fire'
 ```
 
+Angular Aria
+```bash
+npx skills list angular-sanctuary/angular-agent-skills --skill='angular-aria'
+```
+
 ## Skills
 
 This collection is aim to be a one-stop collection of you are mainly working on Angular. It includes skills from different sources with different scopes.
