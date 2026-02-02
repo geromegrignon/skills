@@ -18,6 +18,28 @@ AngularFire is the official Angular library for Firebase. It provides Angular-na
 - **SSR Support** - Compatible with Angular Universal/SSR
 - **Router Guards** - Built-in auth guards for route protection
 
+## When to Apply
+
+Use this skill when:
+
+- **Setting up Firebase** in an Angular application
+- Implementing **Firebase Authentication** (sign-in, sign-out, auth guards)
+- Working with **Cloud Firestore** (collections, documents, queries, real-time updates)
+- Using **Realtime Database** for real-time data synchronization
+- Managing **file uploads/downloads** with Cloud Storage
+- Calling **Cloud Functions** from Angular
+- Implementing **analytics**, **performance monitoring**, or **remote config**
+- Setting up **push notifications** with Cloud Messaging
+- Protecting routes with **auth guards**
+- Configuring **Firebase emulators** for local development
+- Building **server-side rendered** Angular apps with Firebase
+
+Do NOT use this skill when:
+
+- Using Firebase JS SDK directly without Angular wrappers
+- Working with non-Firebase backends
+- The Firebase product you need is not supported by AngularFire
+
 ## Core References
 
 | Topic | Description | Reference |

@@ -13,6 +13,25 @@ Angular Aria is a collection of headless, accessible directives that implement c
 
 Install via `npm install @angular/aria`.
 
+## When to Apply
+
+Use this skill when:
+
+- Building **custom accessible UI components** that need WAI-ARIA compliance
+- Implementing **keyboard navigation** patterns (arrow keys, Enter, Escape, Tab)
+- Adding **focus management** to interactive widgets
+- Creating **headless/unstyled** UI primitives with custom styling
+- Building **autocomplete**, **combobox**, **listbox**, **select**, or **multiselect** inputs
+- Implementing **menus**, **menubars**, or **toolbars** with proper ARIA roles
+- Creating **accordion**, **tabs**, **tree**, or **grid** patterns
+- Needing **screen reader support** for custom components
+
+Do NOT use this skill when:
+
+- Using Angular Material components (they have built-in accessibility)
+- Building simple forms with native HTML elements
+- The WAI-ARIA pattern you need is not covered by Angular Aria
+
 ## Core
 
 | Topic | Description | Reference |

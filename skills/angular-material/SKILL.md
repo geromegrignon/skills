@@ -11,6 +11,28 @@ metadata:
 
 Angular Material is the official UI component library for Angular, implementing Material Design 3 (M3). It provides a comprehensive set of pre-built, accessible components along with the Component Dev Kit (CDK) for building custom components.
 
+## When to Apply
+
+Use this skill when:
+
+- Using **Angular Material components** (buttons, forms, dialogs, tables, etc.)
+- **Theming** with Material Design 3 (M3) color palettes, typography, density
+- Working with **mat-form-field**, inputs, select, autocomplete, or datepicker
+- Implementing **data tables** with sorting, pagination, and filtering
+- Creating **dialogs**, **bottom sheets**, **snackbars**, or **tooltips**
+- Building **navigation** with sidenav, menus, tabs, or steppers
+- Using **CDK** primitives (overlay, portal, drag-drop, virtual scrolling)
+- Implementing **accessible components** with CDK a11y utilities
+- Creating **custom form field controls** that integrate with mat-form-field
+- Using **component test harnesses** for reliable testing
+- Scaffolding components with **Angular Material schematics**
+
+Do NOT use this skill when:
+
+- Using a different UI library (PrimeNG, ngx-bootstrap, etc.)
+- Building completely custom UI without Material Design
+- Working with Angular Aria headless primitives (use the angular-aria skill instead)
+
 ## Core References
 
 | Topic | Description | Reference |
